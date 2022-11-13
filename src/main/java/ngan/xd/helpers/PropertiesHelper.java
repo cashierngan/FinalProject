@@ -11,7 +11,7 @@ public class PropertiesHelper {
     private static String linkFile;
     private static FileInputStream file;
     private static FileOutputStream out;
-    private static String relPropertiesFilePathDefault = "src/test/java/resource/configs.properties";
+    private static String relPropertiesFilePathDefault = "src/main/resources/configs.properties";
 
     public static Properties loadAllFiles() {
         LinkedList<String> files = new LinkedList<>();

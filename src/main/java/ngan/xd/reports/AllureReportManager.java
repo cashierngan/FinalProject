@@ -1,5 +1,10 @@
 package ngan.xd.reports;
 
+import io.qameta.allure.Attachment;
+import ngan.xd.driver.DriverManager;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 public class AllureReportManager {
     //Text attachments for Allure
     @Attachment(value = "{0}", type = "text/plain")
