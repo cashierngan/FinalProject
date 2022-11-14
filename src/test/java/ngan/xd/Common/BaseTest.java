@@ -1,6 +1,7 @@
 package ngan.xd.Common;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import ngan.xd.Listeners.TestListeners;
 import ngan.xd.Pages.CommonPage;
 import ngan.xd.driver.DriverManager;
 import ngan.xd.helpers.CaptureHelpers;
@@ -13,14 +14,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
 
+@Listeners(TestListeners.class)
 public class BaseTest extends CommonPage {
 
     //    public static WebDriver driver;

@@ -20,6 +20,7 @@ public class ExtentTestManager {
 
     public static synchronized ExtentTest saveToReport(String testName, String desc) {
         ExtentTest test = extent.createTest(testName, desc);
+        System.out.println("saveToReport " + Thread.currentThread().getId());
         extentTestMap.put((int) Thread.currentThread().getId(), test);
         return test;
     }

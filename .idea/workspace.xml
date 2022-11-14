@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dbb2ed4d-ce6c-45a0-898a-c7b412572f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentTestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Common/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Common/BaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +47,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/ngan.dang/Testing/FinalProject",
+    "last_opened_file_path": "D:/LearningAutotest/MiniAppCenter/MiniAppCenter",
     "settings.editor.selected.configurable": "actions.on.save"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.LoginTest.loginFailwithNullEmail">
+  <component name="RunManager" selected="TestNG.LoginTest">
     <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <extension name="coverage">
@@ -108,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTest.loginFailwithNullEmail" />
         <item itemvalue="TestNG.LoginTest" />
+        <item itemvalue="TestNG.LoginTest.loginFailwithNullEmail" />
         <item itemvalue="TestNG.LoginTest.testLogin" />
       </list>
     </recent_temporary>

@@ -1,0 +1,6 @@
+[INFO] 14-11-2022 17:20:45 [main] Log - Start Testing FinalProject
+[INFO] 14-11-2022 17:20:48 [main] Log - loginFailwithNullEmail test is starting...
+[INFO] 14-11-2022 17:20:58 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 14-11-2022 17:21:00 [main] Log - Verify equals: The email field is required when phone is not present.
+[INFO] 14-11-2022 17:21:00 [main] Log - loginFailwithNullEmail is passed
+[INFO] 14-11-2022 17:21:03 [main] Log - End TestingFinalProject
