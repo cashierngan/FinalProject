@@ -43,7 +43,7 @@ public class LoginPage extends CommonPage {
         WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
     }
 
-    public void loginFailWithNullPassword(String email, String valid) {
+    public void loginFailWithNullPassword(String email) {
         login();
         WebUI.setText(inputEmail, email);
         WebUI.clickElement(buttonSubmitLogin);
@@ -56,14 +56,13 @@ public class LoginPage extends CommonPage {
         WebUI.clearText(inputPassword);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-        WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is failed but valid is NOT displayed.");
+        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
     }
 
     public void loginSuccessWithCustomerAccount() {
         login();
         WebUI.clickElement(buttonCopyCustomerAcc);
         WebUI.clickElement(buttonSubmitLogin);
-        WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is failed but valid is NOT displayed.");
         WebUI.verifyAssertTrueIsDisplayed(DashboardPage.titleDashboard, "Dashboard page is NOT displayed.");
     }
 }

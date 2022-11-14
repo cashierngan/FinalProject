@@ -8,11 +8,11 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
     public ExcelHelpers excel;
 
-    @BeforeMethod
-    public void LoginTest() {
-        excel = new ExcelHelpers();
-        excel.setExcelFile("DataTest/Login.xlsx", "Login");
-    }
+//    @BeforeMethod
+//    public void LoginTest() {
+//        excel = new ExcelHelpers();
+//        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+//    }
 
     @Test(priority = 1)
     public void loginFailWithNullEmail() {
@@ -21,20 +21,24 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 2)
     public void loginFailWithEmailDoesNotExist() {
-//        ExcelHelpers excel = new ExcelHelpers();
-//        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
         getLoginPage().loginFailWithEmailDoesNotExist(excel.getCellData("email", 1), excel.getCellData("password", 1));
     }
 
-//    @Test(priority = 3)
-//    public void loginFailWithNullPassword() {
-//        getLoginPage().loginFailWithNullPassword();
-//    }
-//
-//    @Test(priority = 4)
-//    public void loginFailWithFailPassword() {
-//        getLoginPage().loginFailWithFailPassword();
-//    }
+    @Test(priority = 3)
+    public void loginFailWithNullPassword() {
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        getLoginPage().loginFailWithNullPassword(excel.getCellData("email", 2));
+    }
+
+    @Test(priority = 4)
+    public void loginFailWithFailPassword() {
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        getLoginPage().loginFailWithFailPassword(excel.getCellData("password", 3));
+    }
 
     @Test(priority = 5)
     public void loginSuccessWithCustomerAccount() {
