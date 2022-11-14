@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb2ed4d-ce6c-45a0-898a-c7b412572f1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FinalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FinalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/helpers/CaptureHelpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/helpers/CaptureHelpers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/helpers/PropertiesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/helpers/PropertiesHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/AllureReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/AllureReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/utils/WebUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/utils/WebUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configs.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/CommonPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentReportManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,15 +43,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/LearningAutotest/FinalProject&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/ngan.dang/Testing/FinalProject",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="TestNG.LoginTest.loginFailwithNullEmail">
+    <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ngan.xd.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.loginFailwithNullEmail" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ngan.xd.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
+      <option name="METHOD_NAME" value="loginFailwithNullEmail" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTest.testLogin" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <extension name="coverage">
@@ -79,6 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.LoginTest.loginFailwithNullEmail" />
+        <item itemvalue="TestNG.LoginTest" />
         <item itemvalue="TestNG.LoginTest.testLogin" />
       </list>
     </recent_temporary>

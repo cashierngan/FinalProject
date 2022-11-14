@@ -8,7 +8,7 @@ public class ExtentReportManager {
 
     public synchronized static ExtentReports getExtentReports() {
         ExtentSparkReporter reporter = new ExtentSparkReporter("./ExtentReports/ExtentReport.html");
-        reporter.config().setReportName("Demo Extent Report");
+        reporter.config().setReportName("Final Stone Project Report");
         extentReports.attachReporter(reporter);
         extentReports.setSystemInfo("TestNG", "Selenium Java Framework | Ngan Dang");
         extentReports.setSystemInfo("Author", "Ngan Dang");
