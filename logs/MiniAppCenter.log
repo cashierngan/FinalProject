@@ -71,3 +71,34 @@
 [INFO] 14-11-2022 20:06:12 [TestNG-test=Parallel Login Page-5] Log - loginSuccessWithCustomerAccount is passed
 [INFO] 14-11-2022 20:06:13 [TestNG-test=Parallel Login Page-3] Log - loginFailWithNullPassword is passed
 [INFO] 14-11-2022 20:06:13 [main] Log - End TestingParallel Login Page
+[INFO] 15-11-2022 15:48:58 [main] Log - Start Testing Parallel Login Page
+[INFO] 15-11-2022 15:49:09 [main] Log - loginFailWithNullEmail test is starting...
+[INFO] 15-11-2022 15:49:32 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 15-11-2022 15:49:35 [main] Log - Verify equals: The email field is required when phone is not present.
+[INFO] 15-11-2022 15:49:35 [main] Log - loginFailWithNullEmail is passed
+[INFO] 15-11-2022 15:49:42 [main] Log - loginFailWithEmailDoesNotExist test is starting...
+[INFO] 15-11-2022 15:50:08 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 15-11-2022 15:50:15 [main] Log - Verify displayed: By.xpath: //span[@data-notify='message']
+[INFO] 15-11-2022 15:50:15 [main] Log - loginFailWithEmailDoesNotExist is passed
+[INFO] 15-11-2022 15:50:24 [main] Log - loginFailWithNullPassword test is starting...
+[INFO] 15-11-2022 15:50:52 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 15-11-2022 15:50:58 [main] Log - Verify displayed: By.xpath: //input[contains(@class, 'is-invalid') and @id = 'password']
+[INFO] 15-11-2022 15:50:58 [main] Log - loginFailWithNullPassword is passed
+[INFO] 15-11-2022 15:51:06 [main] Log - loginFailWithFailPassword test is starting...
+[INFO] 15-11-2022 15:51:35 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[ERROR] 15-11-2022 15:51:38 [main] Log - loginFailWithFailPassword is failed
+[ERROR] 15-11-2022 15:51:39 [main] Log - Screenshot captured for test case: loginFailWithFailPassword
+[INFO] 15-11-2022 15:51:41 [main] Log - loginSuccessWithCustomerAccount test is starting...
+[INFO] 15-11-2022 15:51:41 [main] Log - End TestingParallel Login Page
+[INFO] 15-11-2022 15:59:39 [main] Log - Start Testing Parallel Login Page
+[INFO] 15-11-2022 15:59:46 [main] Log - loginFailWithNullEmail test is starting...
+[INFO] 15-11-2022 16:00:09 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 15-11-2022 16:00:12 [main] Log - Verify equals: The email field is required when phone is not present.
+[INFO] 15-11-2022 16:00:12 [main] Log - loginFailWithNullEmail is passed
+[INFO] 15-11-2022 16:00:20 [main] Log - loginFailWithEmailDoesNotExist test is starting...
+[ERROR] 15-11-2022 16:00:34 [main] Log - loginFailWithEmailDoesNotExist is failed
+[ERROR] 15-11-2022 16:00:34 [main] Log - Screenshot captured for test case: loginFailWithEmailDoesNotExist
+[INFO] 15-11-2022 16:00:37 [main] Log - loginFailWithNullPassword test is starting...
+[INFO] 15-11-2022 16:00:37 [main] Log - loginFailWithFailPassword test is starting...
+[INFO] 15-11-2022 16:00:37 [main] Log - loginSuccessWithCustomerAccount test is starting...
+[INFO] 15-11-2022 16:00:37 [main] Log - End TestingParallel Login Page
