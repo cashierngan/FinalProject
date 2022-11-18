@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dbb2ed4d-ce6c-45a0-898a-c7b412572f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTest/Login.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/DataTest/Login.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtentReports/ExtentReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/ExtentReports/ExtentReport.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screenshots/loginFailWithFailPassword.png" beforeDir="false" afterPath="$PROJECT_DIR$/Screenshots/loginFailWithFailPassword.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/MiniAppCenter.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/MiniAppCenter.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/DataProviders/DataProviderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/DataProviders/DataProviderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/suites/testsuites.xml" beforeDir="false" afterPath="$PROJECT_DIR$/suites/testsuites.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ngan/xd/DataProviders/DataProviderManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ngan/xd/DataProviders/DataProviderManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/reports/ExtentTestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Common/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Common/BaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,16 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ngan.dang/Testing/FinalProject&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/LearningAutotest/MiniAppCenter/MiniAppCenter",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
-}</component>
-  <component name="RunManager" selected="TestNG./Users/ngan.dang/Testing/FinalProject/suites/testsuites.xml">
+}]]></component>
+  <component name="RunManager" selected="TestNG.LoginTest">
     <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <extension name="coverage">
@@ -74,7 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginFailWithEmailDoesNotExist" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.loginFailwithNullEmail" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <extension name="coverage">
         <pattern>
@@ -84,7 +79,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
       <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginFailWithEmailDoesNotExist" />
+      <option name="METHOD_NAME" value="loginFailwithNullEmail" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -92,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginFailWithFailPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.testLogin" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <extension name="coverage">
         <pattern>
@@ -102,36 +97,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
       <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginFailWithFailPassword" />
+      <option name="METHOD_NAME" value="testLogin" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.loginSuccessWithCustomerAccount" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ngan.xd.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginSuccessWithCustomerAccount" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="/Users/ngan.dang/Testing/FinalProject/suites/testsuites.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/testsuites.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -140,11 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG./Users/ngan.dang/Testing/FinalProject/suites/testsuites.xml" />
-        <item itemvalue="TestNG.LoginTest.loginSuccessWithCustomerAccount" />
-        <item itemvalue="TestNG.LoginTest.loginFailWithFailPassword" />
-        <item itemvalue="TestNG.LoginTest.loginFailWithEmailDoesNotExist" />
         <item itemvalue="TestNG.LoginTest" />
+        <item itemvalue="TestNG.LoginTest.loginFailwithNullEmail" />
+        <item itemvalue="TestNG.LoginTest.testLogin" />
       </list>
     </recent_temporary>
   </component>
