@@ -24,19 +24,22 @@ public class WebUI {
     private static Actions action = new Actions(DriverManager.getDriver());
 
     private final static int TIMEOUT = Integer.parseInt(PropertiesHelper.getValue("TIMEOUT"));
-    private final static int STEP_TIME = Integer.parseInt(PropertiesHelper.getValue("STEP_TIME"));;
-    private final static int PAGE_LOAD_TIMEOUT = Integer.parseInt(PropertiesHelper.getValue("PAGE_LOAD_TIMEOUT"));;
+    private final static int STEP_TIME = Integer.parseInt(PropertiesHelper.getValue("STEP_TIME"));
+    ;
+    private final static int PAGE_LOAD_TIMEOUT = Integer.parseInt(PropertiesHelper.getValue("PAGE_LOAD_TIMEOUT"));
+    ;
 
     @Step("Sleep {0} seconds")
-    public static void sleep(long second){
+    public static void sleep(long second) {
         try {
-            Thread.sleep(second*1000);
+            Thread.sleep(second * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
     @Step("Click element: {0}")
-    public static void clickElement( By by){
+    public static void clickElement(By by) {
         waitForPageLoaded();
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -47,7 +50,7 @@ public class WebUI {
     }
 
     @Step("Click element: {0}")
-    public static void clickElement(By by, long timeout){
+    public static void clickElement(By by, long timeout) {
         waitForPageLoaded();
         waitForElementVisible(by);
         sleep(STEP_TIME);
@@ -55,12 +58,12 @@ public class WebUI {
         DriverManager.getDriver().findElement(by).click();
     }
 
-    public static WebElement getWebElement(By by){
+    public static WebElement getWebElement(By by) {
         return DriverManager.getDriver().findElement(by);
     }
 
     @Step("Verrify Equal {1} on {0}")
-    public static void verifyAssertTrueEqual(By by, String verifyText, String message){
+    public static void verifyAssertTrueEqual(By by, String verifyText, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Log.info("Verify equals: " + verifyText);
@@ -68,7 +71,7 @@ public class WebUI {
     }
 
     @Step("Verify {1} is contains {2} on {0}")
-    public static void verifyAssertTrueContain(By by, String attribute, String verifyText, String message){
+    public static void verifyAssertTrueContain(By by, String attribute, String verifyText, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Log.info("Verify contain: " + verifyText);
@@ -76,109 +79,113 @@ public class WebUI {
     }
 
     @Step("Verify {0} is displayed")
-    public static void verifyAssertTrueIsDisplayed(By by, String message){
+    public static void verifyAssertTrueIsDisplayed(By by, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Log.info("Verify displayed: " + by);
         Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), message);
     }
 
-    public static void setValue(By by, String value){
+    public static void setValue(By by, String value) {
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript("\"" + by + ".setAttribute('value'," + value + ")");
     }
 
-    public static List<WebElement> getWebElements(By by){
+    public static List<WebElement> getWebElements(By by) {
         return DriverManager.getDriver().findElements(by);
     }
+
     @Step("Clear text: {0}")
-    public static void clearText ( By by){
+    public static void clearText(By by) {
         waitForPageLoaded();
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         sleep(STEP_TIME);
         WebUI.clickElement(by);
-//        driver.findElement(by).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-        action.keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(Keys.DELETE).build().perform();
+        DriverManager.getDriver().findElement(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+//        action.keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(Keys.DELETE).build().perform();
     }
 
     @Step("Key down Enter")
-    public static void keydownEnter(){
+    public static void keydownEnter() {
         action.keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
     }
 
     @Step("Set text {1} on {0}")
-    public static void setText( By by, String value){
+    public static void setText(By by, String value) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         sleep(STEP_TIME);
         highLightElement(by);
+        clearText(by);
         getWebElement(by).sendKeys(value);
         ExtentTestManager.logMessage(Status.PASS, "Set text: " + value + " on element " + by);
     }
 
 
     @Step("Set text {1} on {0}")
-    public static void setTextEnter( By by, String value){
+    public static void setTextEnter(By by, String value) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         sleep(STEP_TIME);
         highLightElement(by);
-        getWebElement(by).sendKeys(value,Keys.ENTER);
+        getWebElement(by).sendKeys(value, Keys.ENTER);
         ExtentTestManager.logMessage(Status.PASS, "Set text: " + value + " on element " + by);
     }
-    public static void waitForElementClick( By by){
+
+    public static void waitForElementClick(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
-    public static void waitForElementinVisible( By by){
+
+    public static void waitForElementinVisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 
     }
+
     @Step("Visibility of element located {0}")
-    public static void waitForElementVisible( By by){
+    public static void waitForElementVisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     @Step("Invisibility of element located {0}")
-    public static void waitForElementInvisible( By by){
+    public static void waitForElementInvisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     @Step("Open URL: {0}")
-    public static void openURL( String URL){
+    public static void openURL(String URL) {
         DriverManager.getDriver().get(URL);
         logConsole("Open URL: " + URL);
         ExtentTestManager.logMessage(Status.PASS, "Open URL: " + URL);
         waitForPageLoaded();
     }
 
-    public static String getElementText( By by){
+    public static String getElementText(By by) {
         waitForElementVisible(by);
         sleep(STEP_TIME);
         return getWebElement(by).getText(); // trả về 1 giá trị  String
     }
-    public static void logConsole (Object message){
+
+    public static void logConsole(Object message) {
         System.out.println(message);
     }
 
-    public static Boolean checkElementExist(By by){
+    public static Boolean checkElementExist(By by) {
         waitForPageLoaded();
         sleep(3);
-        List<WebElement> listElement =  getWebElements(by);
-        if(listElement.size() > 0){
+        List<WebElement> listElement = getWebElements(by);
+        if (listElement.size() > 0) {
             System.out.println("checkElementExist: " + true + " ---" + by);
             return true;
-        }
-        else {
+        } else {
             System.out.println("checkElementExist: " + false + " ---" + by);
             return false;
         }
     }
-
 
 
     public static void c(By by, int timeOut) {
@@ -231,13 +238,13 @@ public class WebUI {
         }
     }
 
-    public static void verifyEquals(Object actual, Object expected){
+    public static void verifyEquals(Object actual, Object expected) {
         waitForPageLoaded();
         sleep(STEP_TIME);
         Assert.assertEquals(actual, expected, "Fail, NOT match" + actual.toString() + "not equals" + expected.toString());
     }
 
-    public static void verifyEquals(Object actual, Object expected, String message){
+    public static void verifyEquals(Object actual, Object expected, String message) {
         waitForPageLoaded();
         sleep(STEP_TIME);
         Assert.assertEquals(actual, expected, message);
