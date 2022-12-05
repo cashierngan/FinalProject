@@ -342,7 +342,7 @@ public class WebUI {
 
     public static void scrollToElement(By element) {
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true);", getWebElement(element));
+        js.executeScript("arguments[0].scrollIntoView(false);", getWebElement(element));
     }
 
     public static void scrollToElement(WebElement element) {

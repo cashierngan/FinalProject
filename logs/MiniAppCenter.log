@@ -144,3 +144,61 @@
 [INFO] 20-11-2022 15:20:22 [main] Log - Verify displayed: By.xpath: //span[@data-notify='message' and normalize-space() = 'Sorry! the action is not permitted in demo']
 [INFO] 20-11-2022 15:20:22 [main] Log - updateProfile is passed
 [INFO] 20-11-2022 15:20:25 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 17:20:36 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 17:20:44 [main] Log - updateProfile test is starting...
+[INFO] 05-12-2022 17:20:54 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 17:20:59 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 17:21:02 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Manage Profile']
+[INFO] 05-12-2022 17:21:15 [main] Log - Verify displayed: By.xpath: //span[@data-notify='message' and normalize-space() = 'Sorry! the action is not permitted in demo']
+[INFO] 05-12-2022 17:21:15 [main] Log - updateProfile is passed
+[INFO] 05-12-2022 17:21:18 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:02:46 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:02:52 [main] Log - updateEmail test is starting...
+[INFO] 05-12-2022 18:03:04 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:03:09 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:03:12 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Manage Profile']
+[INFO] 05-12-2022 18:03:12 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Manage Profile']
+[INFO] 05-12-2022 18:03:21 [main] Log - updateEmail is passed
+[INFO] 05-12-2022 18:03:24 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:05:03 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:05:07 [main] Log - updateEmail test is starting...
+[INFO] 05-12-2022 18:05:17 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:05:22 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:05:25 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Manage Profile']
+[INFO] 05-12-2022 18:05:25 [main] Log - Verify displayed: By.xpath: //h5[normalize-space()='Change your email']
+[ERROR] 05-12-2022 18:05:29 [main] Log - updateEmail is failed
+[ERROR] 05-12-2022 18:05:29 [main] Log - Screenshot captured for test case: updateEmail
+[INFO] 05-12-2022 18:05:33 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:06:22 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:06:26 [main] Log - updateEmail test is starting...
+[INFO] 05-12-2022 18:06:35 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:06:39 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:06:42 [main] Log - Verify displayed: By.xpath: //h5[normalize-space()='Change your email']
+[ERROR] 05-12-2022 18:06:46 [main] Log - updateEmail is failed
+[ERROR] 05-12-2022 18:06:46 [main] Log - Screenshot captured for test case: updateEmail
+[INFO] 05-12-2022 18:06:49 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:07:51 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:07:56 [main] Log - updateEmail test is starting...
+[INFO] 05-12-2022 18:08:06 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:08:12 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:08:15 [main] Log - Verify displayed: By.xpath: //h5[normalize-space()='Change your email']
+[INFO] 05-12-2022 18:08:24 [main] Log - Verify displayed: By.xpath: //span[@data-notify='message']
+[INFO] 05-12-2022 18:08:24 [main] Log - updateEmail is passed
+[INFO] 05-12-2022 18:08:29 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:41:54 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:41:59 [main] Log - addNewAddress test is starting...
+[INFO] 05-12-2022 18:42:09 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:42:14 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:42:16 [main] Log - Verify displayed: By.xpath: //h5[normalize-space()='Address']
+[INFO] 05-12-2022 18:42:19 [main] Log - Verify displayed: By.xpath: //div[@id='new-address-modal']//h5[@id='exampleModalLabel']
+[ERROR] 05-12-2022 18:43:03 [main] Log - addNewAddress is failed
+[ERROR] 05-12-2022 18:43:03 [main] Log - Screenshot captured for test case: addNewAddress
+[INFO] 05-12-2022 18:43:06 [main] Log - End TestingFinalProject
+[INFO] 05-12-2022 18:43:57 [main] Log - Start Testing FinalProject
+[INFO] 05-12-2022 18:44:01 [main] Log - addNewAddress test is starting...
+[INFO] 05-12-2022 18:44:11 [main] Log - Verify displayed: By.xpath: //h1[normalize-space() = 'Login to your account.']
+[INFO] 05-12-2022 18:44:15 [main] Log - Verify displayed: By.xpath: //h1[normalize-space()='Dashboard']
+[INFO] 05-12-2022 18:44:18 [main] Log - Verify displayed: By.xpath: //h5[normalize-space()='Address']
+[INFO] 05-12-2022 18:44:20 [main] Log - Verify displayed: By.xpath: //div[@id='new-address-modal']//h5[@id='exampleModalLabel']
+[INFO] 05-12-2022 18:44:39 [main] Log - addNewAddress is passed
+[INFO] 05-12-2022 18:44:42 [main] Log - End TestingFinalProject

@@ -9,4 +9,14 @@ public class ProfileTest extends BaseTest {
     public void updateProfile() {
         getProfilePage().updateProfile();
     }
+
+    @Test(priority = 2)
+    public void updateEmail() {
+        getProfilePage().updateEmail();
+    }
+
+    @Test(priority = 3)
+    public void addNewAddress() {
+        getProfilePage().addNewAddress();
+    }
 }

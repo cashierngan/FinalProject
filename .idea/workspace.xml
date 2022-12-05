@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbb2ed4d-ce6c-45a0-898a-c7b412572f1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/DashboardPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/ProfilePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/ProfileTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/suites/testsuites.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/OrderPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/getProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/OrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ExtentReports/ExtentReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/ExtentReports/ExtentReport.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/MiniAppCenter.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/MiniAppCenter.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ngan/xd/utils/WebUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ngan/xd/utils/WebUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configs.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/CommonPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/configs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configs.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/DashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Pages/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/ProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ngan/xd/Tests/ProfileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ngan/xd/utils/WebUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ngan/xd/utils/WebUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ngan/xd/Pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ngan/xd/Pages/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ngan/xd/Tests/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ngan/xd/Tests/LoginTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,46 +60,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.ProfileTest.updateProfile">
+  <component name="RunManager" selected="TestNG.ProfileTest.addNewAddress">
     <configuration name="D:/LearningAutotest/FinalProject/suites/testsuites.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FinalProject" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/suites/testsuites.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ngan.xd.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.loginFailWithEmailDoesNotExist" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ngan.xd.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginFailWithEmailDoesNotExist" />
-      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -123,6 +82,42 @@
       <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
       <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.LoginTest" />
       <option name="METHOD_NAME" value="loginFailWithFailPassword" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileTest.addNewAddress" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ngan.xd.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.ProfileTest" />
+      <option name="METHOD_NAME" value="addNewAddress" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileTest.updateEmail" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ngan.xd.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ngan.xd.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ngan.xd.Tests.ProfileTest" />
+      <option name="METHOD_NAME" value="updateEmail" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -150,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ProfileTest.addNewAddress" />
+        <item itemvalue="TestNG.ProfileTest.updateEmail" />
         <item itemvalue="TestNG.ProfileTest.updateProfile" />
         <item itemvalue="TestNG.D:/LearningAutotest/FinalProject/suites/testsuites.xml" />
         <item itemvalue="TestNG.LoginTest.loginFailWithFailPassword" />
-        <item itemvalue="TestNG.LoginTest.loginFailWithEmailDoesNotExist" />
-        <item itemvalue="TestNG.LoginTest" />
       </list>
     </recent_temporary>
   </component>
