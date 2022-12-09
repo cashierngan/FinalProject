@@ -99,26 +99,5 @@ public class BaseTest extends CommonPage {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        //Chụp màn hình
-        if (result.getStatus() == ITestResult.FAILURE) {
-
-            // Tạo tham chiếu của TakesScreenshot với driver hiện tại
-            TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
-// Gọi hàm capture screenshot - getScreenshotAs
-            File source = ts.getScreenshotAs(OutputType.FILE);
-//Kiểm tra folder tồn tại. Nêu không thì tạo mới folder
-            File theDir = new File("./Screenshots/");
-            if (!theDir.exists()) {
-                theDir.mkdirs();
-            }
-// result.getName() lấy tên của test case xong gán cho tên File chụp màn hình luôn
-            try {
-                FileHandler.copy(source, new File("./Screenshots/" + result.getName() + ".png"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("Screenshot taken: " + result.getName());
-        }
     }
 }

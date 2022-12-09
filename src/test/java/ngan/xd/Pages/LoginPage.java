@@ -3,7 +3,6 @@ package ngan.xd.Pages;
 import ngan.xd.helpers.PropertiesHelper;
 import ngan.xd.utils.WebUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends CommonPage {
     private static By closeAdvertisementPopup = By.xpath("//i[@class='la la-close fs-20']");
@@ -18,15 +17,15 @@ public class LoginPage extends CommonPage {
     private By messageRequiredPassword = By.xpath("//input[contains(@class, 'is-invalid') and @id = 'password']");
 
 
-    public static void login() {
+    public static void openLoginScreen() {
         WebUI.openURL(PropertiesHelper.getValue("url"));
-        WebUI.clickElement(closeAdvertisementPopup);
+//        WebUI.clickElement(closeAdvertisementPopup);
         WebUI.clickElement(buttonLogin);
         WebUI.verifyAssertTrueIsDisplayed(titleLoginPage, "Login page is NOT displayed");
     }
 
     public void loginFailWithNullEmail() {
-        login();
+        openLoginScreen();
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueEqual(messageRequiredEmail, "The email field is required when phone is not present.", "");
     }
@@ -36,7 +35,7 @@ public class LoginPage extends CommonPage {
     }
 
     public void loginFailWithEmailDoesNotExist(String email, String password) {
-        login();
+        openLoginScreen();
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
@@ -44,14 +43,14 @@ public class LoginPage extends CommonPage {
     }
 
     public void loginFailWithNullPassword(String email) {
-        login();
+        openLoginScreen();
         WebUI.setText(inputEmail, email);
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is NULL but valid is NOT displayed.");
     }
 
     public void loginFailWithFailPassword(String password) {
-        login();
+        openLoginScreen();
         WebUI.clickElement(buttonCopyCustomerAcc);
         WebUI.clearText(inputPassword);
         WebUI.setText(inputPassword, password);
@@ -60,7 +59,7 @@ public class LoginPage extends CommonPage {
     }
 
     public static void loginSuccessWithCustomerAccount() {
-        login();
+        openLoginScreen();
         WebUI.clickElement(buttonCopyCustomerAcc);
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueIsDisplayed(DashboardPage.titleDashboard, "Dashboard page is NOT displayed.");

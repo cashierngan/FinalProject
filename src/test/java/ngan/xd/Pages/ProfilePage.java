@@ -73,7 +73,6 @@ public class ProfilePage {
         WebUI.setText(inputPastalCode, "5685");
         WebUI.setText(inputPhoneAddress, "0967313406");
         WebUI.clickElement(buttonSaveNewAddress);
-
     }
 
 }

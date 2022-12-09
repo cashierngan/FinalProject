@@ -23,7 +23,6 @@ public class TestListeners implements ITestListener {
     }
 
 
-
     @Override
     public void onStart(ITestContext result) {
         Log.info("Start Testing " + result.getName());
@@ -72,6 +71,9 @@ public class TestListeners implements ITestListener {
         Log.error("Screenshot captured for test case: " + getTestName(result));
         AllureReportManager.saveTextLog(getTestName(result) + "is failed and screenshot taken!");
         AllureReportManager.saveScreenshotPNG();
+
+        //In log error khi lỗi vào report
+        ExtentTestManager.logMessage(Status.FAIL, result.getThrowable().toString());
     }
 
     @Override
