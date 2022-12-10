@@ -41,6 +41,8 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 5)
     public void loginSuccessWithCustomerAccount() {
-        getLoginPage().loginSuccessWithCustomerAccount();
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        getLoginPage().loginSuccessWithCustomerAccount(excel.getCellData("email", 4), excel.getCellData("password", 4));
     }
 }
