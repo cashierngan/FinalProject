@@ -87,6 +87,6 @@ public class CaptureHelpers extends ScreenRecorder {
 
     // Stop record video
     public static void stopRecord() throws Exception {
-        screenRecorder.stop();
+//        screenRecorder.stop();
     }
 }

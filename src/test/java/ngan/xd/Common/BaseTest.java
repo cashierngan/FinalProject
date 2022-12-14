@@ -32,7 +32,7 @@ public class BaseTest extends CommonPage {
     public static void createDriver(@Optional("chrome") String browser, ITestResult result) throws Exception {
         WebDriver driver = setupDriver(browser);
         DriverManager.setDriver(driver);
-        CaptureHelpers.startRecord(result.getName());
+//        CaptureHelpers.startRecord(result.getName());
 
     }
 
@@ -94,10 +94,10 @@ public class BaseTest extends CommonPage {
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();
         }
-        try {
-            CaptureHelpers.stopRecord();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            CaptureHelpers.stopRecord();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }

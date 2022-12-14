@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
     public void loginFailWithFailPassword() {
         excel = new ExcelHelpers();
         excel.setExcelFile("DataTest/Login.xlsx", "Login");
-        getLoginPage().loginFailWithFailPassword(excel.getCellData("password", 3));
+        getLoginPage().loginFailWithFailPassword(excel.getCellData("email", 3), excel.getCellData("password", 3));
     }
 
     @Test(priority = 5)

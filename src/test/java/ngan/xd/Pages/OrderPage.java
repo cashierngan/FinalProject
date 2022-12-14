@@ -9,12 +9,12 @@ import java.nio.file.WatchEvent;
 
 public class OrderPage {
     private By selectProductShoes = By.xpath("//img[@alt=\"Men's Running Shoes Non Slip Athletic Tennis Walking Blade Type Sneakers\"]");
-    private By buttonAddToCart = By.xpath("//i[@class='las la-shopping-bag']");
+    private By buttonAddToCart = By.xpath("//button[@class='btn btn-soft-primary mr-2 add-to-cart fw-600']");
     private By popupAddToCartSucceeded = By.xpath("//h3[normalize-space()='Item added to your cart!']");
     private By clodeSuccessAddToCartPopup = By.xpath("//span[@class = 'la-2x']");
     private By buttonBackToShopping = By.xpath("//button[normalize-space()='Back to shopping']");
     private By selectProductDress = By.xpath("//a[contains(text(),'Womens Summer Plus Size Lace Neckline Cold Shoulde')]");
-    private By buttonPlus = By.xpath("//i[@class='las la-plus']");
+    private By buttonPlus = By.xpath("//button[contains(@data-type,'plus')]");
     private By buttonCart = By.xpath("//i[@class='la la-shopping-cart la-2x opacity-80']");
     private By viewProductOrderOnCart = By.xpath("//span[@class='fw-600 mb-1 text-truncate-2']");
     private By buttonCheckoutOnCartPopup = By.xpath("//a[normalize-space()='Checkout']");
@@ -30,6 +30,7 @@ public class OrderPage {
     private By checkboxAgreeTermAndConditions = By.xpath("//span[@class='aiz-square-check']");
     private By buttonCompleteOrder = By.xpath("//button[normalize-space()='Complete Order']");
     private By messageOrderSuccess = By.xpath("//h1[normalize-space()='Thank You for Your Order!']");
+    private By quantityProduct = By.xpath("//input[@name='quantity']");
 
     public void order(String email, String password) {
         LoginPage.loginSuccessWithCustomerAccount(email, password);
@@ -42,7 +43,10 @@ public class OrderPage {
 //        WebUI.clickElement(buttonBackToShopping);
         WebUI.setTextEnter(DashboardPage.searchProduct, "womens summer");
         WebUI.clickElement(selectProductDress);
-        WebUI.clickElement(buttonPlus);
+//        WebUI.clickElement(buttonPlus);
+//        WebUI.sleep(7);
+//        System.out.println(DriverManager.getDriver().findElement(By.xpath("//input[@name='quantity']")).getAttribute("value"));
+//        WebUI.verifyEquals(DriverManager.getDriver().findElement(By.xpath("//input[@name='quantity']")).getAttribute("value"), 2, "number of failed products");
         WebUI.scrollToElement(buttonAddToCart);
         WebUI.clickElement(buttonAddToCart);
         WebUI.verifyAssertTrueIsDisplayed(popupAddToCartSucceeded, "Add to cart is failed");
@@ -60,7 +64,7 @@ public class OrderPage {
         WebUI.clickElement(checkboxAgreeTermAndConditions);
         WebUI.clickElement(buttonCompleteOrder);
         WebUI.verifyAssertTrueIsDisplayed(messageOrderSuccess, "Order is failed");
-
+        String x = DriverManager.getDriver().findElement(By.xpath("//input[@name='quantity']")).getAttribute("value");
     }
 
 }

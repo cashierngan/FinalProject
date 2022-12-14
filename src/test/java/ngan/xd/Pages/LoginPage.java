@@ -19,7 +19,7 @@ public class LoginPage extends CommonPage {
 
     public static void openLoginScreen() {
         WebUI.openURL(PropertiesHelper.getValue("url"));
-//        WebUI.clickElement(closeAdvertisementPopup);
+        WebUI.clickElement(closeAdvertisementPopup);
         WebUI.clickElement(buttonLogin);
         WebUI.verifyAssertTrueIsDisplayed(titleLoginPage, "Login page is NOT displayed");
     }
@@ -39,7 +39,7 @@ public class LoginPage extends CommonPage {
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
+//        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
     }
 
     public void loginFailWithNullPassword(String email) {
@@ -49,13 +49,13 @@ public class LoginPage extends CommonPage {
         WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is NULL but valid is NOT displayed.");
     }
 
-    public void loginFailWithFailPassword(String password) {
+    public void loginFailWithFailPassword(String email, String password) {
         openLoginScreen();
-        WebUI.clickElement(buttonCopyCustomerAcc);
-        WebUI.clearText(inputPassword);
+        WebUI.setText(inputEmail, email);
+//        WebUI.clearText(inputPassword);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
+//        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
     }
 
     public static void loginSuccessWithCustomerAccount(String email, String password) {
