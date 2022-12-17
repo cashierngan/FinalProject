@@ -15,9 +15,9 @@ public class LoginPage extends CommonPage {
     private static By inputPassword = By.xpath("//input[@id='password']");
     private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message']");
     private By messageRequiredPassword = By.xpath("//input[contains(@class, 'is-invalid') and @id = 'password']");
+    private static By titleAnhTesterAdminPage = By.xpath("//img[@alt='Anh Tester Demo']");
 
-
-    public static void openLoginScreen() {
+    public static void openLoginPage() {
         WebUI.openURL(PropertiesHelper.getValue("url"));
         WebUI.clickElement(closeAdvertisementPopup);
         WebUI.clickElement(buttonLogin);
@@ -25,7 +25,7 @@ public class LoginPage extends CommonPage {
     }
 
     public void loginFailWithNullEmail() {
-        openLoginScreen();
+        openLoginPage();
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueEqual(messageRequiredEmail, "The email field is required when phone is not present.", "");
     }
@@ -35,35 +35,43 @@ public class LoginPage extends CommonPage {
     }
 
     public void loginFailWithEmailDoesNotExist(String email, String password) {
-        openLoginScreen();
+        openLoginPage();
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-//        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
+        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
     }
 
     public void loginFailWithNullPassword(String email) {
-        openLoginScreen();
+        openLoginPage();
         WebUI.setText(inputEmail, email);
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is NULL but valid is NOT displayed.");
     }
 
     public void loginFailWithFailPassword(String email, String password) {
-        openLoginScreen();
+        openLoginPage();
         WebUI.setText(inputEmail, email);
-//        WebUI.clearText(inputPassword);
+        WebUI.clearText(inputPassword);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-//        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
+        WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
     }
 
-    public static void loginSuccessWithCustomerAccount(String email, String password) {
-        openLoginScreen();
-//        WebUI.clickElement(buttonCopyCustomerAcc);
-        WebUI.setText(inputEmail, email);
-        WebUI.setText(inputPassword, password);
+    public static void loginSuccessWithCustomerAccount() {
+        openLoginPage();
+        WebUI.clickElement(buttonCopyCustomerAcc);
         WebUI.clickElement(buttonSubmitLogin);
         WebUI.verifyAssertTrueIsDisplayed(DashboardPage.titleDashboard, "Dashboard page is NOT displayed.");
     }
+
+    public static void loginSuccessAdminPage(String email, String password) {
+        WebUI.openURL(PropertiesHelper.getValue("url_admin"));
+        WebUI.setText(inputEmail, email);
+        WebUI.setText(inputPassword, password);
+        WebUI.clickElement(buttonSubmitLogin);
+        WebUI.verifyAssertTrueIsDisplayed(titleAnhTesterAdminPage, "Admin page is NOT displayed.");
+    }
 }
+
+

@@ -32,8 +32,8 @@ public class OrderPage {
     private By messageOrderSuccess = By.xpath("//h1[normalize-space()='Thank You for Your Order!']");
     private By quantityProduct = By.xpath("//input[@name='quantity']");
 
-    public void order(String email, String password) {
-        LoginPage.loginSuccessWithCustomerAccount(email, password);
+    public void order() {
+        LoginPage.loginSuccessWithCustomerAccount();
 //        WebUI.setTextEnter(DashboardPage.searchProduct, "shoes");
 //        WebUI.scrollToElement(selectProductShoes);
 //        WebUI.clickElement(selectProductShoes);

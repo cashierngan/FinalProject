@@ -4,6 +4,7 @@ public class CommonPage {
     public LoginPage loginPage;
     public ProfilePage profilePage;
     public OrderPage orderPage;
+    public AddProductPage addProductPage;
 
     public LoginPage getLoginPage() {
         if (loginPage == null) {
@@ -24,5 +25,12 @@ public class CommonPage {
             orderPage = new OrderPage();
         }
         return orderPage;
+    }
+
+    public AddProductPage getAddProductPage() {
+        if (addProductPage == null) {
+            addProductPage = new AddProductPage();
+        }
+        return addProductPage;
     }
 }
