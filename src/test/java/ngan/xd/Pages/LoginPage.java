@@ -5,7 +5,7 @@ import ngan.xd.utils.WebUI;
 import org.openqa.selenium.By;
 
 public class LoginPage extends CommonPage {
-    private static By closeAdvertisementPopup = By.xpath("//i[@class='la la-close fs-20']");
+    public static By closeAdvertisementPopup = By.xpath("//i[@class='la la-close fs-20']");
     private static By buttonLogin = By.xpath("//a[normalize-space() = 'Login' and @class = 'text-reset d-inline-block opacity-60 py-2']");
     private static By buttonCopyCustomerAcc = By.xpath("//td[normalize-space()='Customer Account']/following-sibling::td//button[normalize-space()='Copy credentials']");
     private static By buttonSubmitLogin = By.xpath("//button[normalize-space()='Login']");

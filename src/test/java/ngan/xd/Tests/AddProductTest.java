@@ -16,5 +16,9 @@ public class AddProductTest extends BaseTest {
         excelAddProduct.setExcelFile("DataTest/AddProduct.xlsx", "AddProduct");
         getAddProductPage().addProduct(excelLogin.getCellData("email", 5), excelLogin.getCellData("password", 5), excelAddProduct.getCellData("product name", 1), excelAddProduct.getCellData("category", 1), excelAddProduct.getCellData("unit", 1), Double.valueOf(excelAddProduct.getCellData("weight", 1)), excelAddProduct.getCellData("tags", 1), Double.valueOf(excelAddProduct.getCellData("unit price", 1)), excelAddProduct.getCellData("discount date", 1),
                 Integer.parseInt(excelAddProduct.getCellData("quantity", 1)), excelAddProduct.getCellData("SKU", 1), excelAddProduct.getCellData("description", 1), Integer.parseInt(excelAddProduct.getCellData("discount", 1)));
+        getAddProductPage().verifyNewProduct(excelAddProduct.getCellData("product name", 1), excelAddProduct.getCellData("category", 1), excelAddProduct.getCellData("unit", 1), Double.valueOf(excelAddProduct.getCellData("unit price", 1)), excelAddProduct.getCellData("description", 1));
+
     }
 }
+
+

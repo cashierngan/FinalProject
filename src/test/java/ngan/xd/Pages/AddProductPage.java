@@ -1,8 +1,13 @@
 package ngan.xd.Pages;
 
 import ngan.xd.driver.DriverManager;
+import ngan.xd.helpers.PropertiesHelper;
+import ngan.xd.utils.Log;
 import ngan.xd.utils.WebUI;
 import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import java.util.Random;
 
 public class AddProductPage {
     private By menuProduct = By.xpath("//span[normalize-space()='Products']");
@@ -45,6 +50,15 @@ public class AddProductPage {
     private By messageAddProductSuccess = By.xpath("//span[@data-notify='message']");
 
     private static By selectCocaCola = By.xpath("(//a[normalize-space()='CocaCola'])[1]");
+    private static By allCategoriesTabUI = By.xpath("//a[normalize-space()='All categories']");
+    private static By productCocaColaUI = By.xpath("(//a[normalize-space()='CocaCola'])");
+    private static By productNameUI = By.xpath("//h1[normalize-space()='CocaCola']");
+    private static By waterCategoryUI = By.xpath("//a[contains(text(),'Water')]");
+    private static By unitUI = By.xpath("//span[@class='opacity-70']");
+
+    private static By priceUnitUI = By.xpath("//strong[@class='h2 fw-600 text-primary']");
+    private static By descriptionUI = By.xpath("//p[contains(text(),'The Coca-Cola Company is an American multinational')]");
+    int randomNumber = new Random().nextInt(1000000);
 
     public void addProduct(String email, String password, String productName, String category, String unit, Double weight, String tags, Double unitPrice, String discountDate, int quantity, String SKU, String description, int discount) {
         LoginPage.loginSuccessAdminPage(email, password);
@@ -79,16 +93,23 @@ public class AddProductPage {
         WebUI.clickElement(selectUnitDiscount);
         WebUI.clickElement(selectUnitDiscountPercent);
         WebUI.setText(inputQuantity, String.valueOf(quantity));
-        WebUI.setText(inputSKU, SKU);
+        WebUI.setText(inputSKU, String.valueOf(randomNumber));
         WebUI.verifyAssertTrueIsDisplayed(blockProductDescription, "Product description is not displayed");
         WebUI.setText(inputDescription, description);
         WebUI.clickElement(buttonSavePublish);
         WebUI.verifyAssertTrueIsDisplayed(messageAddProductSuccess, "Add Product is failed");
     }
 
-    public static void verifyNewProduct(String productName) {
-        LoginPage.openLoginPage();
-        WebUI.setTextEnter(DashboardPage.searchProduct, productName);
+    public static void verifyNewProduct(String productName, String category, String unit, Double unitPrice, String description) {
+        WebUI.openURL(PropertiesHelper.getValue("url"));
+        WebUI.clickElement(LoginPage.closeAdvertisementPopup);
+        WebUI.clickElement(allCategoriesTabUI);
+        WebUI.clickElement(By.xpath("//a[contains(text(),'" + category + "')]"));
+        WebUI.verifyAssertTrueIsDisplayed(productCocaColaUI, "Product is NOT displayed");
         WebUI.clickElement(selectCocaCola);
+        WebUI.verifyAssertTrueEqual(productNameUI, productName, "Product name displayed wrong");
+        WebUI.verifyAssertTrueEqual(unitUI, "/" + unit, "Unit displayed wrong");
+        Assert.assertTrue(DriverManager.getDriver().findElement(unitUI).getText().trim().contains(unit), "Unit displayed wrong");
+        WebUI.verifyAssertTrueEqual(descriptionUI, description, "Description displayed wrong");
     }
 }
