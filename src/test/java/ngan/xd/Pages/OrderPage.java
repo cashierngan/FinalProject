@@ -13,12 +13,12 @@ public class OrderPage {
     private By popupAddToCartSucceeded = By.xpath("//h3[normalize-space()='Item added to your cart!']");
     private By clodeSuccessAddToCartPopup = By.xpath("//span[@class = 'la-2x']");
     private By buttonBackToShopping = By.xpath("//button[normalize-space()='Back to shopping']");
-    private By selectProductDress = By.xpath("//a[contains(text(),'Womens Summer Plus Size Lace Neckline Cold Shoulde')]");
+    private By selectProductCoca = By.xpath("(//a[@class='d-block text-reset'][normalize-space()='CocaCola'])[1]");
     private By buttonPlus = By.xpath("//button[contains(@data-type,'plus')]");
     private By buttonCart = By.xpath("//i[@class='la la-shopping-cart la-2x opacity-80']");
     private By viewProductOrderOnCart = By.xpath("//span[@class='fw-600 mb-1 text-truncate-2']");
     private By buttonCheckoutOnCartPopup = By.xpath("//a[normalize-space()='Checkout']");
-    private By selectAddressForOrder = By.xpath("(//span[@class='d-flex p-3 aiz-megabox-elem'])[2]");
+    private By buttonAddNewAddress = By.xpath("//div[@class='border p-3 rounded mb-3 c-pointer text-center bg-white h-100 d-flex flex-column justify-content-center']");
     private By verifyCheckedAddress = By.xpath("(//input[@name = 'address_id' ])[2]");
     private By buttonProcessToCheckout = By.xpath("//a[normalize-space()='Proceed to Checkout']");
     private By buttonContinueToShipping = By.xpath("//a[normalize-space()='Continue to Shipping']");
@@ -31,6 +31,13 @@ public class OrderPage {
     private By buttonCompleteOrder = By.xpath("//button[normalize-space()='Complete Order']");
     private By messageOrderSuccess = By.xpath("//h1[normalize-space()='Thank You for Your Order!']");
     private By quantityProduct = By.xpath("//input[@name='quantity']");
+    private By titleNewAddress = By.xpath("//div[@id='new-address-modal']//h5[@id='exampleModalLabel']");
+    private By inputYourAddress = By.xpath("//textarea[@placeholder='Your Address']");
+    private By selectCountry = By.xpath("//div[contains(text(),'Select your country')]");
+
+    public void addNewAddress() {
+
+    }
 
     public void order() {
         LoginPage.loginSuccessWithCustomerAccount();
@@ -41,10 +48,10 @@ public class OrderPage {
 //        WebUI.clickElement(buttonAddToCart);
 //        WebUI.verifyAssertTrueIsDisplayed(popupAddToCartSucceeded, "Add to cart is failed");
 //        WebUI.clickElement(buttonBackToShopping);
-        WebUI.setTextEnter(DashboardPage.searchProduct, "womens summer");
-        WebUI.clickElement(selectProductDress);
-//        WebUI.clickElement(buttonPlus);
-//        WebUI.sleep(7);
+        WebUI.setTextEnter(DashboardPage.searchProduct, "coca cola");
+        WebUI.clickElement(selectProductCoca);
+        WebUI.clickElement(buttonPlus);
+        WebUI.sleep(6);
 //        System.out.println(DriverManager.getDriver().findElement(By.xpath("//input[@name='quantity']")).getAttribute("value"));
 //        WebUI.verifyEquals(DriverManager.getDriver().findElement(By.xpath("//input[@name='quantity']")).getAttribute("value"), 2, "number of failed products");
         WebUI.scrollToElement(buttonAddToCart);
@@ -54,8 +61,8 @@ public class OrderPage {
         WebUI.clickElement(buttonCart);
         WebUI.verifyAssertTrueIsDisplayed(viewProductOrderOnCart, "My product is NOT displayed");
         WebUI.clickElement(buttonCheckoutOnCartPopup);
-        WebUI.clickElement(selectAddressForOrder);
-        Assert.assertTrue(DriverManager.getDriver().findElement(verifyCheckedAddress).getAttribute("checked").equals("true"), "Address is NOT selected");
+//        WebUI.clickElement(selectAddressForOrder);
+//        Assert.assertTrue(DriverManager.getDriver().findElement(verifyCheckedAddress).getAttribute("checked").equals("true"), "Address is NOT selected");
         WebUI.clickElement(buttonContinueToDeliveryInfo);
         WebUI.verifyAssertTrueIsDisplayed(verifyProductAtStepCheckout, "My product is NOT displayed");
         WebUI.clickElement(buttonContinueToPament);

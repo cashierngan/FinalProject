@@ -2,7 +2,6 @@ package ngan.xd.Pages;
 
 import ngan.xd.driver.DriverManager;
 import ngan.xd.helpers.PropertiesHelper;
-import ngan.xd.utils.Log;
 import ngan.xd.utils.WebUI;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -17,9 +16,6 @@ public class AddProductPage {
     private By inputProductName = By.xpath("//input[@placeholder='Product Name']");
     private By selectCategory = By.xpath("//button[@data-id= 'category_id']");
     private By inputSearchCategory = By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']");
-    private By selectBeautyHealthyCategory = By.xpath("//span[normalize-space()='---- Beauty & Health']");
-    private By selectBrand = By.xpath("//div[contains(text(),'Select Brand')]");
-    private By selectBrandAudi = By.xpath("//a[@id='bs-select-2-3']");
     private By inputUnit = By.xpath("//input[@placeholder='Unit (e.g. KG, Pc etc)']");
     private By inputWeight = By.xpath("//input[@name='weight']");
     private By inputTags = By.xpath("//span[@aria-placeholder='Type and hit enter to add a tag']");
@@ -30,11 +26,8 @@ public class AddProductPage {
     private By inputGalleryImages = By.xpath("//input[@class = 'uppy-Dashboard-input']");
     private By buttonAddFileImgs = By.xpath("//button[normalize-space()='Add Files']");
     private By selectFileTab = By.xpath("//a[normalize-space()='Select File']");
-    private By selectGalleryImages = By.xpath("(//div[@title='cocacola.png'])[1]");
-    private By selectThumbnailImages = By.xpath("(//span[@class='text-truncate title'][normalize-space()='cocacola'])[2]");
-    private By inputSearchThumbnailImages = By.xpath("//input[@placeholder='Search your files']");
-    private By blockProductVideos = By.xpath("//h5[normalize-space()='Product Videos']");
-    private By inputVideoLink = By.xpath("//input[@placeholder='Video Link']");
+    private By selectGalleryImages = By.xpath("(//img[@class='img-fit'])[1]");
+    private By selectThumbnailImages = By.xpath("(//img[@class='img-fit'])[2]");
     private By blockProductPrice = By.xpath("//h5[normalize-space()='Product price + stock']");
     private By inputUnitPrice = By.xpath("//input[@placeholder='Unit price']");
     private By selectDate = By.xpath("//input[@placeholder='Select Date']");
@@ -48,19 +41,12 @@ public class AddProductPage {
     private By inputDescription = By.xpath("//div[@role='textbox']");
     private By buttonSavePublish = By.xpath("//button[normalize-space()='Save & Publish']");
     private By messageAddProductSuccess = By.xpath("//span[@data-notify='message']");
-
-    private static By selectCocaCola = By.xpath("(//a[normalize-space()='CocaCola'])[1]");
     private static By allCategoriesTabUI = By.xpath("//a[normalize-space()='All categories']");
-    private static By productCocaColaUI = By.xpath("(//a[normalize-space()='CocaCola'])");
-    private static By productNameUI = By.xpath("//h1[normalize-space()='CocaCola']");
-    private static By waterCategoryUI = By.xpath("//a[contains(text(),'Water')]");
     private static By unitUI = By.xpath("//span[@class='opacity-70']");
-
-    private static By priceUnitUI = By.xpath("//strong[@class='h2 fw-600 text-primary']");
-    private static By descriptionUI = By.xpath("//p[contains(text(),'The Coca-Cola Company is an American multinational')]");
+    private static By descriptionUI = By.xpath("//div[@class = 'mw-100 overflow-auto text-left aiz-editor-data']//p");
     int randomNumber = new Random().nextInt(1000000);
 
-    public void addProduct(String email, String password, String productName, String category, String unit, Double weight, String tags, Double unitPrice, String discountDate, int quantity, String SKU, String description, int discount) {
+    public void addProduct(String email, String password, String productName, String category, String unit, String weight, String tags, String unitPrice, String discountDate, String quantity, String description, String discount, String imgName) {
         LoginPage.loginSuccessAdminPage(email, password);
         WebUI.clickElement(menuProduct);
         WebUI.sleep(3);
@@ -76,13 +62,11 @@ public class AddProductPage {
         WebUI.verifyAssertTrueIsDisplayed(blockProductImages, "Product Images block is not displayed");
         WebUI.clickElement(selectChooseGalleryImgs);
         WebUI.clickElement(updateNewImageTab);
-        DriverManager.getDriver().findElement(inputGalleryImages).sendKeys(System.getProperty("user.dir") + "/DataTest/cocacola.png");
+        DriverManager.getDriver().findElement(inputGalleryImages).sendKeys(System.getProperty("user.dir") + "/DataTest/" + imgName);
         WebUI.clickElement(selectFileTab);
         WebUI.clickElement(selectGalleryImages);
         WebUI.clickElement(buttonAddFileImgs);
         WebUI.clickElement(selectChooseThumbnailImgs);
-        WebUI.setText(inputSearchThumbnailImages, productName);
-        WebUI.sleep(2);
         WebUI.clickElement(selectThumbnailImages);
         WebUI.clickElement(buttonAddFileImgs);
         WebUI.verifyAssertTrueIsDisplayed(blockProductPrice, "Product price block is NOT displayed");
@@ -105,9 +89,9 @@ public class AddProductPage {
         WebUI.clickElement(LoginPage.closeAdvertisementPopup);
         WebUI.clickElement(allCategoriesTabUI);
         WebUI.clickElement(By.xpath("//a[contains(text(),'" + category + "')]"));
-        WebUI.verifyAssertTrueIsDisplayed(productCocaColaUI, "Product is NOT displayed");
-        WebUI.clickElement(selectCocaCola);
-        WebUI.verifyAssertTrueEqual(productNameUI, productName, "Product name displayed wrong");
+        WebUI.verifyAssertTrueIsDisplayed(By.xpath("(//a[normalize-space()='" + productName + "'])"), "Product is NOT displayed");
+        WebUI.clickElement(By.xpath("(//a[normalize-space()='" + productName + "'])[1]"));
+        WebUI.verifyAssertTrueEqual(By.xpath("//h1[normalize-space()='" + productName + "']"), productName, "Product name displayed wrong");
         WebUI.verifyAssertTrueEqual(unitUI, "/" + unit, "Unit displayed wrong");
         Assert.assertTrue(DriverManager.getDriver().findElement(unitUI).getText().trim().contains(unit), "Unit displayed wrong");
         WebUI.verifyAssertTrueEqual(descriptionUI, description, "Description displayed wrong");
