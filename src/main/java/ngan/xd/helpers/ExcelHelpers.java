@@ -118,10 +118,10 @@ public class ExcelHelpers {
             if (text == "pass" || text == "passed") {
                 style.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
             }
-            if (text == "fail" || text == "passed") {
+            if (text == "fail" || text == "failed") {
                 style.setFillForegroundColor(IndexedColors.RED.getIndex());
             }
-            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style.setFillPattern(FillPatternType.NO_FILL);
             style.setAlignment(HorizontalAlignment.CENTER);
             style.setVerticalAlignment(VerticalAlignment.CENTER);
 

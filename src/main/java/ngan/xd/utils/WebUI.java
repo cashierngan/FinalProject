@@ -86,6 +86,14 @@ public class WebUI {
         Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), message);
     }
 
+    @Step("Verify {1} is displayed true is {2}")
+    public static void verifyAssertTrueAttribute(By by, String attribute, String expectedValue, String message) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        Log.info("Verify displayed true: " + by + "is" + expectedValue);
+        Assert.assertTrue(DriverManager.getDriver().findElement(by).getAttribute(attribute).trim().equals(expectedValue), message);
+    }
+
     public static void setValue(By by, String value) {
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript("\"" + by + ".setAttribute('value'," + value + ")");

@@ -7,12 +7,6 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
     public ExcelHelpers excel;
 
-//    @BeforeMethod
-//    public void LoginTest() {
-//        excel = new ExcelHelpers();
-//        excel.setExcelFile("DataTest/Login.xlsx", "Login");
-//    }
-
     @Test(priority = 1)
     public void loginFailWithNullEmail() {
         getLoginPage().loginFailWithNullEmail();

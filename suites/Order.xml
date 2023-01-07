@@ -1,11 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Testing Final Stone Project" verbose="1">
-    <test name="Full Flow Order">
+    <test name="Get Product Info">
         <classes>
             <class name="ngan.xd.Tests.OrderTest">
-                <methods>
-                    <include name="successOrder"></include>
-                </methods>
             </class>
         </classes>
     </test>

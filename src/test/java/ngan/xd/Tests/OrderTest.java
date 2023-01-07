@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 public class OrderTest extends BaseTest {
     public ExcelHelpers excel;
 
-    @Test(priority = 0)
+    @Test(priority = 1)
     public void successOrder() {
-        getOrderPage().order();
+        getOrderPage().order("delivery as soon as possible");
     }
 }
