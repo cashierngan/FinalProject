@@ -15,14 +15,14 @@ public class ProductInfoPage extends CommonPage {
     private By productDescription = By.xpath("//div[@class = 'mw-100 overflow-auto text-left aiz-editor-data']/p");
     private By selectProductChocoPie = By.xpath("(//img[@alt='ChocoPie'])[1]");
 
-    public ArrayList productInfo() {
+    public ArrayList productInfo(String product) {
         LoginPage.loginSuccessWithCustomerAccount();
-        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P02"));
-        WebUI.clickElement(selectProductChocoPie);
-        String name = DriverManager.getDriver().findElement(productName).getText();
+        WebUI.setTextEnter(DashboardPage.searchProduct, product);
+        WebUI.clickElement(By.xpath("(//img[@alt='" + product + "'])[1]"));
+        String name = DriverManager.getDriver().findElement(By.xpath("//h1[normalize-space()='" + product + "']")).getText();
         String price = DriverManager.getDriver().findElement(productPrice).getText();
         String unit = DriverManager.getDriver().findElement(productUnit).getText();
-        String unitProduct = unit.substring(1, unit.length());
+        String unitProduct = unit.substring(1);
         String description = DriverManager.getDriver().findElement(productDescription).getText();
         List<String> arrayList = new ArrayList<String>();
         arrayList.add(name);
