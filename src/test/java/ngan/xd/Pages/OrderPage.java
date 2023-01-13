@@ -44,14 +44,14 @@ public class OrderPage {
 
     public void order(String noteForOrder) {
         LoginPage.loginSuccessWithCustomerAccount();
-        WebUI.setTextEnter(DashboardPage.searchProduct, "Nabati");
+        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P01"));
         WebUI.clickElement(selectProductNabati);
         String nabatiPrice = DriverManager.getDriver().findElement(ProductInfoPage.productPrice).getText().trim();
         WebUI.scrollToElement(buttonAddToCart);
         WebUI.clickElement(buttonAddToCart);
         WebUI.verifyAssertTrueIsDisplayed(popupAddToCartSucceeded, "Add to cart is failed");
         WebUI.clickElement(buttonBackToShopping);
-        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("get_product_info"));
+        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P02"));
         WebUI.clickElement(selectProductChocoPie);
         String chocoPiePrice = DriverManager.getDriver().findElement(ProductInfoPage.productPrice).getText().trim();
         WebUI.clickElement(buttonPlus);

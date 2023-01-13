@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Testing Final Stone Project" verbose="1">
+    <test name="Verify Login Page - Parallel 4 thread" parallel="methods" thread-count="4">
+        <classes>
+            <class name="ngan.xd.Tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="Add Product and verify it">
+        <classes>
+            <class name="ngan.xd.Tests.AddProductTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Get Product Info">
+        <classes>
+            <class name="ngan.xd.Tests.ProductInfoTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Order">
+        <classes>
+            <class name="ngan.xd.Tests.OrderTest">
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Testing Final Stone Project" verbose="1">
-    <test name="Get Product Info">
+    <test name="Order">
         <classes>
             <class name="ngan.xd.Tests.OrderTest">
             </class>

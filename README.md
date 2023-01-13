@@ -20,3 +20,5 @@ Dự án cuối khóa Selenium Java
 - Parallel Execution mỗi lần tối đa 4 thread các case độc lập (tuỳ sắp xếp cho phù hợp theo ý)
 
 ### Link: https://cms.anhtester.com
+
+### Run Allure Report: allure serve target/allure-results

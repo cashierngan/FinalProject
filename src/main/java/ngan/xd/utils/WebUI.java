@@ -4,6 +4,7 @@ import com.aventstack.extentreports.Status;
 import io.qameta.allure.Step;
 import ngan.xd.driver.DriverManager;
 import ngan.xd.helpers.PropertiesHelper;
+import ngan.xd.reports.AllureReportManager;
 import ngan.xd.reports.ExtentTestManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -47,6 +48,8 @@ public class WebUI {
         highLightElement(by);
         DriverManager.getDriver().findElement(by).click();
         ExtentTestManager.logMessage(Status.PASS, "Click element: " + by);
+        Log.info("Click element: " + by.toString());
+        AllureReportManager.saveTextLog("Click element: " + by.toString());
     }
 
     @Step("Click element: {0}")
@@ -55,43 +58,54 @@ public class WebUI {
         waitForElementVisible(by);
         sleep(STEP_TIME);
         highLightElement(by);
-        DriverManager.getDriver().findElement(by).click();
+        getWebElement(by).click();
+        logConsole("Click element: " + by.toString());
+        AllureReportManager.saveTextLog("Click element: " + by.toString());
+        ExtentTestManager.logMessage(Status.PASS, "Click element: " + by);
     }
 
     public static WebElement getWebElement(By by) {
         return DriverManager.getDriver().findElement(by);
     }
 
-    @Step("Verrify Equal {1} on {0}")
+    @Step("Verify {1} is display correct on {0}")
     public static void verifyAssertTrueEqual(By by, String verifyText, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        Log.info("Verify equals: " + verifyText);
         Assert.assertTrue(DriverManager.getDriver().findElement(by).getText().trim().equals(verifyText), message);
+        Log.info("Verify " + verifyText + " is display correct on " + by.toString());
+        AllureReportManager.saveTextLog("Verify " + verifyText + " is display correct on " + by.toString());
+        ExtentTestManager.logMessage(Status.PASS, "Verify " + verifyText + " is display correct on " + by.toString());
     }
 
-    @Step("Verify {1} is contains {2} on {0}")
+    @Step("Verify attribute {1} is contains {2} on {0}")
     public static void verifyAssertTrueContain(By by, String attribute, String verifyText, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Log.info("Verify contain: " + verifyText);
         Assert.assertTrue(DriverManager.getDriver().findElement(by).getAttribute(attribute).contains(verifyText), message);
+        AllureReportManager.saveTextLog("Verify " + attribute + " is contains " + verifyText + " on " + by.toString());
+        ExtentTestManager.logMessage(Status.PASS, "Verify " + attribute + " is contains " + verifyText + " on " + by.toString());
     }
 
     @Step("Verify {0} is displayed")
     public static void verifyAssertTrueIsDisplayed(By by, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        Log.info("Verify displayed: " + by);
+        Log.info("Verify " + by + " is displayed");
         Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), message);
+        AllureReportManager.saveTextLog("Verify " + by + " is displayed");
+        ExtentTestManager.logMessage("Verify " + by + " is displayed");
     }
 
-    @Step("Verify {1} is displayed true is {2}")
+    @Step("Verify attribute {1} is contains {2} on {0}")
     public static void verifyAssertTrueAttribute(By by, String attribute, String expectedValue, String message) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        Log.info("Verify displayed true: " + by + "is" + expectedValue);
+        Log.info("Verify attribute " + attribute + " is contains " + expectedValue + " on " + by.toString());
         Assert.assertTrue(DriverManager.getDriver().findElement(by).getAttribute(attribute).trim().equals(expectedValue), message);
+        AllureReportManager.saveTextLog("Verify attribute " + attribute + " is contains " + expectedValue + " on " + by.toString());
+        ExtentTestManager.logMessage("Verify attribute " + attribute + " is contains " + expectedValue + " on " + by.toString());
     }
 
     public static void setValue(By by, String value) {
@@ -103,7 +117,7 @@ public class WebUI {
         return DriverManager.getDriver().findElements(by);
     }
 
-    @Step("Clear text: {0}")
+    @Step("Clear text on: {0}")
     public static void clearText(By by) {
         waitForPageLoaded();
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
@@ -112,11 +126,17 @@ public class WebUI {
         WebUI.clickElement(by);
         DriverManager.getDriver().findElement(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 //        action.keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(Keys.DELETE).build().perform();
+        AllureReportManager.saveTextLog("Clear text on: " + by.toString());
+        Log.info("Clear text on: " + by.toString());
+        ExtentTestManager.logMessage("Clear text on: " + by.toString());
     }
 
     @Step("Key down Enter")
     public static void keydownEnter() {
         action.keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+        AllureReportManager.saveTextLog("Key down Enter");
+        Log.info("Key down Enter");
+        ExtentTestManager.logMessage("Key down Enter");
     }
 
     @Step("Set text {1} on {0}")
@@ -128,10 +148,12 @@ public class WebUI {
         clearText(by);
         getWebElement(by).sendKeys(value);
         ExtentTestManager.logMessage(Status.PASS, "Set text: " + value + " on element " + by);
+        AllureReportManager.saveTextLog("Set text {1} on {0}");
+        Log.info("Set text {1} on {0}");
     }
 
 
-    @Step("Set text {1} on {0}")
+    @Step("Set text {1} on {0} and key down enter")
     public static void setTextEnter(By by, String value) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -139,6 +161,8 @@ public class WebUI {
         highLightElement(by);
         getWebElement(by).sendKeys(value, Keys.ENTER);
         ExtentTestManager.logMessage(Status.PASS, "Set text: " + value + " on element " + by);
+        AllureReportManager.saveTextLog("Set text " + value + " on " + by.toString() + " and key down enter");
+        Log.info("Set text " + value + " on " + by.toString() + " and key down enter");
     }
 
     public static void waitForElementClick(By by) {
@@ -152,16 +176,22 @@ public class WebUI {
 
     }
 
-    @Step("Visibility of element located {0}")
+    @Step("Wait until the element {0} is visible")
     public static void waitForElementVisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        ExtentTestManager.logMessage(Status.PASS, "Wait until the element " + by + " is visible");
+        AllureReportManager.saveTextLog("Wait until the element " + by + " is visible");
+        Log.info("Wait until the element " + by + " is visible");
     }
 
-    @Step("Invisibility of element located {0}")
+    @Step("Wait until the element {0} is invisible")
     public static void waitForElementInvisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+        ExtentTestManager.logMessage(Status.PASS, "Wait until the element " + by + " is invisible");
+        AllureReportManager.saveTextLog("Wait until the element " + by + " is invisible");
+        Log.info("Wait until the element " + by + " is invisible");
     }
 
     @Step("Open URL: {0}")
@@ -170,6 +200,7 @@ public class WebUI {
         logConsole("Open URL: " + URL);
         ExtentTestManager.logMessage(Status.PASS, "Open URL: " + URL);
         waitForPageLoaded();
+        AllureReportManager.saveTextLog("Open URL: " + URL);
     }
 
     public static String getElementText(By by) {
@@ -195,16 +226,6 @@ public class WebUI {
         }
     }
 
-
-    public static void c(By by, int timeOut) {
-        try {
-            WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeOut), Duration.ofMillis(500));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        } catch (Throwable error) {
-            Assert.fail("Timeout waiting for the element Visible. " + by.toString());
-            logConsole("Timeout waiting for the element Visible. " + by.toString());
-        }
-    }
 
     public static void waitForElementPresent(By by) {
         try {
@@ -246,16 +267,24 @@ public class WebUI {
         }
     }
 
+    @Step("Verify result {1} is correct")
     public static void verifyEquals(Object actual, Object expected) {
         waitForPageLoaded();
         sleep(STEP_TIME);
         Assert.assertEquals(actual, expected, "Fail, NOT match" + actual.toString() + "not equals" + expected.toString());
+        ExtentTestManager.logMessage(Status.PASS, "Verify result" + expected + " is correct");
+        AllureReportManager.saveTextLog("Verify result" + expected + " is correct");
+        Log.info("Verify result" + expected + " is correct");
     }
 
+    @Step("Verify result {1} is correct")
     public static void verifyEquals(Object actual, Object expected, String message) {
         waitForPageLoaded();
         sleep(STEP_TIME);
         Assert.assertEquals(actual, expected, message);
+        ExtentTestManager.logMessage(Status.PASS, "Verify result" + expected + " is correct");
+        AllureReportManager.saveTextLog("Verify result" + expected + " is correct");
+        Log.info("Verify result" + expected + " is correct");
     }
 
     /**

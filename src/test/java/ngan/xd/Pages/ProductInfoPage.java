@@ -17,7 +17,7 @@ public class ProductInfoPage extends CommonPage {
 
     public ArrayList productInfo() {
         LoginPage.loginSuccessWithCustomerAccount();
-        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("get_product_info"));
+        WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P02"));
         WebUI.clickElement(selectProductChocoPie);
         String name = DriverManager.getDriver().findElement(productName).getText();
         String price = DriverManager.getDriver().findElement(productPrice).getText();

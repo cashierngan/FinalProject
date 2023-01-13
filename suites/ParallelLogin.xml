@@ -1,18 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Testing Final Stone Project" verbose="1">
-    <test name="Parallel Login Page" parallel="methods">
-        <classes>
-            <class name="ngan.xd.Tests.LoginTest">
-                <methods>
-                    <include name="loginFailWithNullEmail"></include>
-                    <include name="loginSuccessWithCustomerAccount"></include>
-                    <include name="loginFailWithNullPassword"></include>
-                    <include name="loginFailWithFailPassword"></include>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Verify Login Page">
+    <test name="Verify Login Page - Parallel 4 thread" parallel="methods" thread-count="4">
         <classes>
             <class name="ngan.xd.Tests.LoginTest"/>
         </classes>

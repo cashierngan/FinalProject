@@ -94,6 +94,7 @@ public class AddProductPage {
         WebUI.verifyAssertTrueEqual(By.xpath("//h1[normalize-space()='" + productName + "']"), productName, "Product name displayed wrong");
         WebUI.verifyAssertTrueEqual(unitUI, "/" + unit, "Unit displayed wrong");
         Assert.assertTrue(DriverManager.getDriver().findElement(unitUI).getText().trim().contains(unit), "Unit displayed wrong");
+        WebUI.scrollToElement(descriptionUI);
         WebUI.verifyAssertTrueEqual(descriptionUI, description, "Description displayed wrong");
     }
 }

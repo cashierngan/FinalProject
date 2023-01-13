@@ -39,6 +39,7 @@ public class LoginPage extends CommonPage {
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
+        WebUI.waitForElementVisible(messageAccDoesNotExist);
         WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
     }
 
@@ -70,6 +71,7 @@ public class LoginPage extends CommonPage {
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
+        WebUI.waitForElementVisible(titleAnhTesterAdminPage);
         WebUI.verifyAssertTrueIsDisplayed(titleAnhTesterAdminPage, "Admin page is NOT displayed.");
     }
 }
