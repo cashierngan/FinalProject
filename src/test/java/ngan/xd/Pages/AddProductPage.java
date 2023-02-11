@@ -3,12 +3,14 @@ package ngan.xd.Pages;
 import ngan.xd.driver.DriverManager;
 import ngan.xd.helpers.PropertiesHelper;
 import ngan.xd.utils.WebUI;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import java.util.Random;
 
 public class AddProductPage {
+    public String nameProductVerify;
     private By menuProduct = By.xpath("//span[normalize-space()='Products']");
     private By submenuAddProduct = By.xpath("(//span[normalize-space()='Add New Product'])[1]");
     private By titleAddNewProduct = By.xpath("//h5[normalize-space()='Add New Product']");
@@ -45,6 +47,8 @@ public class AddProductPage {
     private static By unitUI = By.xpath("//span[@class='opacity-70']");
     private static By descriptionUI = By.xpath("//div[@class = 'mw-100 overflow-auto text-left aiz-editor-data']//p");
     int randomNumber = new Random().nextInt(1000000);
+    private static By menuAllProducts = By.xpath("//span[normalize-space()='All products']");
+    private static By newProduct = By.xpath("(//span[@class='text-muted text-truncate-2'])[1]");
 
     public void addProduct(String email, String password, String productName, String category, String unit, String weight, String tags, String unitPrice, String discountDate, String quantity, String description, String discount, String imgName) {
         LoginPage.loginSuccessAdminPage(email, password);
@@ -53,7 +57,7 @@ public class AddProductPage {
         WebUI.clickElement(submenuAddProduct);
         WebUI.verifyAssertTrueIsDisplayed(titleAddNewProduct, "Title Add New Product is NOT displayed");
         WebUI.verifyAssertTrueIsDisplayed(blockProductInf, "Product Information block is not displayed");
-        WebUI.setText(inputProductName, productName);
+        WebUI.setText(inputProductName, productName + " " + RandomStringUtils.randomAlphabetic(5));
         WebUI.clickElement(selectCategory);
         WebUI.setTextEnter(inputSearchCategory, category);
         WebUI.setText(inputUnit, unit);
@@ -82,9 +86,15 @@ public class AddProductPage {
         WebUI.setText(inputDescription, description);
         WebUI.clickElement(buttonSavePublish);
         WebUI.verifyAssertTrueIsDisplayed(messageAddProductSuccess, "Add Product is failed");
+        WebUI.clickElement(menuAllProducts);
+        nameProductVerify = DriverManager.getDriver().findElement(newProduct).getText();
+        System.out.println("_____________________________________________________");
+        System.out.println("text: " + DriverManager.getDriver().findElement(newProduct).getText());
     }
 
     public static void verifyNewProduct(String productName, String category, String unit, Double unitPrice, String description) {
+        System.out.println("_____________________________________________________");
+        System.out.println(productName);
         WebUI.openURL(PropertiesHelper.getValue("url"));
         WebUI.clickElement(LoginPage.closeAdvertisementPopup);
         WebUI.clickElement(allCategoriesTabUI);

@@ -15,7 +15,7 @@ public class LoginPage extends CommonPage {
     private static By inputPassword = By.xpath("//input[@id='password']");
     private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message']");
     private By messageRequiredPassword = By.xpath("//input[contains(@class, 'is-invalid') and @id = 'password']");
-    private static By titleAnhTesterAdminPage = By.xpath("//img[@alt='Anh Tester Demo']");
+    private static By titleAnhTesterAdminPage = By.xpath("//img[@alt='Active eCommerce CMS']");
 
     public static void openLoginPage() {
         WebUI.openURL(PropertiesHelper.getValue("url"));

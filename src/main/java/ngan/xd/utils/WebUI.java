@@ -30,7 +30,6 @@ public class WebUI {
     private final static int PAGE_LOAD_TIMEOUT = Integer.parseInt(PropertiesHelper.getValue("PAGE_LOAD_TIMEOUT"));
     ;
 
-    @Step("Sleep {0} seconds")
     public static void sleep(long second) {
         try {
             Thread.sleep(second * 1000);

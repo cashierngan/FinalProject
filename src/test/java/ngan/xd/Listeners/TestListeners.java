@@ -27,6 +27,7 @@ public class TestListeners implements ITestListener {
     public void onStart(ITestContext result) {
         Log.info("Start Testing " + result.getName());
         System.out.println("onStart: " + result.getStartDate());
+        CaptureHelpers.startRecord(result.getName());
     }
 
     @Override
@@ -34,6 +35,7 @@ public class TestListeners implements ITestListener {
         Log.info("End Testing" + result.getName());
         ExtentReportManager.getExtentReports().flush(); // kết thúc và thực thi xuất report
         System.out.println("onFinish: " + result.getEndDate());
+        CaptureHelpers.stopRecord();
     }
 
     @Override
@@ -56,11 +58,7 @@ public class TestListeners implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        try {
-            CaptureHelpers.takeScreenshot(result); // chụp màn hình khi fail
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        CaptureHelpers.takeScreenshot(result); // chụp màn hình khi fail
         Log.error(result.getName() + " is failed");
 
         //Extent Report
