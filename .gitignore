@@ -1,9 +1,7 @@
 .idea
 target
 allure-reports
-ExtentReports
+Report
 logs
-RecordVideo
-Screenshots
 allure-results
 

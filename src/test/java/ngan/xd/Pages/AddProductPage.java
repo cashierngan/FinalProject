@@ -29,6 +29,7 @@ public class AddProductPage {
     private By buttonAddFileImgs = By.xpath("//button[normalize-space()='Add Files']");
     private By selectFileTab = By.xpath("//a[normalize-space()='Select File']");
     private By selectGalleryImages = By.xpath("(//img[@class='img-fit'])[1]");
+    private By inputSearchImg = By.xpath("//input[@placeholder='Search your files']");
     private By selectThumbnailImages = By.xpath("(//img[@class='img-fit'])[2]");
     private By blockProductPrice = By.xpath("//h5[normalize-space()='Product price + stock']");
     private By inputUnitPrice = By.xpath("//input[@placeholder='Unit price']");
@@ -68,9 +69,12 @@ public class AddProductPage {
         WebUI.clickElement(updateNewImageTab);
         DriverManager.getDriver().findElement(inputGalleryImages).sendKeys(System.getProperty("user.dir") + "/DataTest/" + imgName);
         WebUI.clickElement(selectFileTab);
+        String nameImage = imgName.substring(0, imgName.length() - 4);
+        WebUI.setTextEnter(inputSearchImg, nameImage);
         WebUI.clickElement(selectGalleryImages);
         WebUI.clickElement(buttonAddFileImgs);
         WebUI.clickElement(selectChooseThumbnailImgs);
+        WebUI.setTextEnter(inputSearchImg, nameImage);
         WebUI.clickElement(selectThumbnailImages);
         WebUI.clickElement(buttonAddFileImgs);
         WebUI.verifyAssertTrueIsDisplayed(blockProductPrice, "Product price block is NOT displayed");
@@ -88,8 +92,9 @@ public class AddProductPage {
         WebUI.verifyAssertTrueIsDisplayed(messageAddProductSuccess, "Add Product is failed");
         WebUI.clickElement(menuAllProducts);
         nameProductVerify = DriverManager.getDriver().findElement(newProduct).getText();
+        WebUI.sleep(10);
         System.out.println("_____________________________________________________");
-        System.out.println("text: " + DriverManager.getDriver().findElement(newProduct).getText());
+        System.out.println(nameProductVerify);
     }
 
     public static void verifyNewProduct(String productName, String category, String unit, Double unitPrice, String description) {

@@ -57,7 +57,7 @@ public class CaptureHelpers extends ScreenRecorder {
     // Hàm Start record video
     public static void startRecord(String methodName) {
         //Tạo thư mục để lưu file video vào
-        File file = new File("./VideoRecord/");
+        File file = new File("Report/Videos/");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -97,14 +97,14 @@ public class CaptureHelpers extends ScreenRecorder {
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
 
-        File theDir = new File("./screenshots/");
+        File theDir = new File("Report/screenshots/");
         if (!theDir.exists()) {
             theDir.mkdirs();
         }
 
         try {
 
-            FileHandler.copy(source, new File("./screenshots/" + result.getName() + ".png"));
+            FileHandler.copy(source, new File("Report/screenshots/" + result.getName() + ".png"));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -117,14 +117,14 @@ public class CaptureHelpers extends ScreenRecorder {
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
 
-        File theDir = new File("./screenshots/");
+        File theDir = new File("Report/screenshots/");
         if (!theDir.exists()) {
             theDir.mkdirs();
         }
 
         try {
 
-            FileHandler.copy(source, new File("./screenshots/" + name + ".png"));
+            FileHandler.copy(source, new File("Report/screenshots/" + name + ".png"));
 
         } catch (IOException e) {
             throw new RuntimeException(e);

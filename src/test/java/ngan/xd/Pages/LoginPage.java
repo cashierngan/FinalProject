@@ -13,7 +13,7 @@ public class LoginPage extends CommonPage {
     private By messageRequiredEmail = By.xpath("//strong[contains(text(),'The email field is required when phone is not present.')]");
     private static By inputEmail = By.xpath("//input[@id='email']");
     private static By inputPassword = By.xpath("//input[@id='password']");
-    private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message']");
+    private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message1']");
     private By messageRequiredPassword = By.xpath("//input[contains(@class, 'is-invalid') and @id = 'password']");
     private static By titleAnhTesterAdminPage = By.xpath("//img[@alt='Active eCommerce CMS']");
 
