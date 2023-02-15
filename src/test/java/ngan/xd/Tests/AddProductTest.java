@@ -15,11 +15,10 @@ public class AddProductTest extends BaseTest {
     public void addProductSuccess(Hashtable<String, String> data) {
         excelLogin = new ExcelHelpers();
         excelAddProduct = new ExcelHelpers();
-        String nameProductVerify = getAddProductPage().nameProductVerify;
         excelLogin.setExcelFile("DataTest/Login.xlsx", "Login");
         excelAddProduct.setExcelFile("DataTest/AddProduct.xlsx", "AddProduct");
         getAddProductPage().addProduct(excelLogin.getCellData("email", 5), excelLogin.getCellData("password", 5), data.get("productName"), data.get("category"), data.get("unit"), data.get("weight"), data.get("tags"), data.get("unitPrice"), data.get("discountDate"), data.get("quantity"), data.get("description"), data.get("discount"), data.get("image"));
-        getAddProductPage().verifyNewProduct(nameProductVerify, data.get("category"), data.get("unit"), Double.valueOf(data.get("unitPrice")), data.get("description"));
+        getAddProductPage().verifyNewProduct(data.get("category"), data.get("unit"), Double.valueOf(data.get("unitPrice")), data.get("description"));
 
     }
 }

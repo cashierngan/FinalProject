@@ -10,7 +10,7 @@ import org.testng.Assert;
 import java.util.Random;
 
 public class AddProductPage {
-    public String nameProductVerify;
+    private static String nameProductVerify;
     private By menuProduct = By.xpath("//span[normalize-space()='Products']");
     private By submenuAddProduct = By.xpath("(//span[normalize-space()='Add New Product'])[1]");
     private By titleAddNewProduct = By.xpath("//h5[normalize-space()='Add New Product']");
@@ -50,6 +50,7 @@ public class AddProductPage {
     int randomNumber = new Random().nextInt(1000000);
     private static By menuAllProducts = By.xpath("//span[normalize-space()='All products']");
     private static By newProduct = By.xpath("(//span[@class='text-muted text-truncate-2'])[1]");
+    private static By inputSearchProduct = By.xpath("//input[@id='search']");
 
     public void addProduct(String email, String password, String productName, String category, String unit, String weight, String tags, String unitPrice, String discountDate, String quantity, String description, String discount, String imgName) {
         LoginPage.loginSuccessAdminPage(email, password);
@@ -91,22 +92,21 @@ public class AddProductPage {
         WebUI.clickElement(buttonSavePublish);
         WebUI.verifyAssertTrueIsDisplayed(messageAddProductSuccess, "Add Product is failed");
         WebUI.clickElement(menuAllProducts);
+        WebUI.setTextEnter(inputSearchProduct, productName);
+        WebUI.waitForPageLoaded();
+        WebUI.waitForElementVisible(newProduct);
         nameProductVerify = DriverManager.getDriver().findElement(newProduct).getText();
-        WebUI.sleep(10);
-        System.out.println("_____________________________________________________");
-        System.out.println(nameProductVerify);
     }
 
-    public static void verifyNewProduct(String productName, String category, String unit, Double unitPrice, String description) {
-        System.out.println("_____________________________________________________");
-        System.out.println(productName);
+    public static void verifyNewProduct(String category, String unit, Double unitPrice, String description) {
         WebUI.openURL(PropertiesHelper.getValue("url"));
         WebUI.clickElement(LoginPage.closeAdvertisementPopup);
         WebUI.clickElement(allCategoriesTabUI);
+        WebUI.waitForPageLoaded();
         WebUI.clickElement(By.xpath("//a[contains(text(),'" + category + "')]"));
-        WebUI.verifyAssertTrueIsDisplayed(By.xpath("(//a[normalize-space()='" + productName + "'])"), "Product is NOT displayed");
-        WebUI.clickElement(By.xpath("(//a[normalize-space()='" + productName + "'])[1]"));
-        WebUI.verifyAssertTrueEqual(By.xpath("//h1[normalize-space()='" + productName + "']"), productName, "Product name displayed wrong");
+        WebUI.verifyAssertTrueIsDisplayed(By.xpath("(//a[normalize-space()='" + nameProductVerify + "'])"), "Product is NOT displayed");
+        WebUI.clickElement(By.xpath("(//a[normalize-space()='" + nameProductVerify + "'])[1]"));
+        WebUI.verifyAssertTrueEqual(By.xpath("//h1[normalize-space()='" + nameProductVerify + "']"), nameProductVerify, "Product name displayed wrong");
         WebUI.verifyAssertTrueEqual(unitUI, "/" + unit, "Unit displayed wrong");
         Assert.assertTrue(DriverManager.getDriver().findElement(unitUI).getText().trim().contains(unit), "Unit displayed wrong");
         WebUI.scrollToElement(descriptionUI);
