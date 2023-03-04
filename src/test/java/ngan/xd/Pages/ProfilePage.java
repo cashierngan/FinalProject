@@ -34,8 +34,8 @@ public class ProfilePage {
     private By buttonSaveNewAddress = By.xpath("//button[normalize-space()='Save']");
 
 
-    public void updateProfile() {
-        LoginPage.loginSuccessWithCustomerAccount();
+    public void updateProfile(String email, String password) {
+        LoginPage.loginSuccessWithCustomerAccount(email, password);
         WebUI.clickElement(menuManageProfile);
         WebUI.verifyAssertTrueIsDisplayed(titleManageProfile, "Manage Profile page is NOT displayed");
         WebUI.setText(inputName, "Paul K. Jensen 01");
@@ -46,8 +46,8 @@ public class ProfilePage {
         WebUI.verifyAssertTrueIsDisplayed(messageNotPermitted, "The message not allowed in the demo is not displayed");
     }
 
-    public void updateEmail() {
-        LoginPage.loginSuccessWithCustomerAccount();
+    public void updateEmail(String email, String password) {
+        LoginPage.loginSuccessWithCustomerAccount(email, password);
         WebUI.clickElement(menuManageProfile);
         WebUI.scrollToElement(titleChangeEmail);
         WebUI.verifyAssertTrueIsDisplayed(titleChangeEmail, "Title Change your email is NOT displayed");
@@ -56,8 +56,8 @@ public class ProfilePage {
         WebUI.verifyAssertTrueIsDisplayed(messageUpdateEmailSuccess, "Update email is failed");
     }
 
-    public void addNewAddress() {
-        LoginPage.loginSuccessWithCustomerAccount();
+    public void addNewAddress(String email, String password) {
+        LoginPage.loginSuccessWithCustomerAccount(email, password);
         WebUI.clickElement(menuManageProfile);
         WebUI.scrollToElement(titleAddress);
         WebUI.verifyAssertTrueIsDisplayed(titleAddress, "Change address block is NOT displayed");

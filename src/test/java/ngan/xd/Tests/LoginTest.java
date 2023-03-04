@@ -19,26 +19,28 @@ public class LoginTest extends BaseTest {
         getLoginPage().loginFailWithEmailDoesNotExist(excel.getCellData("email", 1), excel.getCellData("password", 1));
     }
 
-    @Test(priority = 6)
+    @Test(priority = 3)
     public void loginFailWithNullPassword() {
         excel = new ExcelHelpers();
         excel.setExcelFile("DataTest/Login.xlsx", "Login");
         getLoginPage().loginFailWithNullPassword(excel.getCellData("email", 2));
     }
 
-    @Test(priority = 5)
-    public void loginFailWithFailPassword() {
+    @Test(priority = 4)
+    public void loginFailWithIncorrectPassword() {
         excel = new ExcelHelpers();
         excel.setExcelFile("DataTest/Login.xlsx", "Login");
-        getLoginPage().loginFailWithFailPassword(excel.getCellData("email", 3), excel.getCellData("password", 3));
+        getLoginPage().loginFailWithIncorrectPassword(excel.getCellData("email", 3), excel.getCellData("password", 3));
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void loginSuccessWithCustomerAccount() {
-        getLoginPage().loginSuccessWithCustomerAccount();
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        getLoginPage().loginSuccessWithCustomerAccount(excel.getCellData("email", 4), excel.getCellData("password", 4));
     }
 
-    @Test(priority = 3)
+    @Test(priority = 6)
     public void loginSuceessAdminPage() {
         excel = new ExcelHelpers();
         excel.setExcelFile("DataTest/Login.xlsx", "Login");

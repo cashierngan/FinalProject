@@ -6,6 +6,7 @@ public class DriverManager {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>(); // khởi tạo driver nạp nhiều luồng với dataType = Webdriver, ThreadLoal chỉ là nơi lưu thôi
 
     private DriverManager() {
+        super();
     }
 
     public static WebDriver getDriver() {
@@ -17,8 +18,9 @@ public class DriverManager {
     }
 
     public static void quit() {
-        DriverManager.driver.get().quit();
-        driver.remove();
+        if (DriverManager.getDriver() != null) {
+            DriverManager.getDriver().quit();
+        }
     }
 }
 

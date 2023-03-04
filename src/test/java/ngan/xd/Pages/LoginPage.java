@@ -7,13 +7,13 @@ import org.openqa.selenium.By;
 public class LoginPage extends CommonPage {
     public static By closeAdvertisementPopup = By.xpath("//i[@class='la la-close fs-20']");
     private static By buttonLogin = By.xpath("//a[normalize-space() = 'Login' and @class = 'text-reset d-inline-block opacity-60 py-2']");
-    private static By buttonCopyCustomerAcc = By.xpath("//td[normalize-space()='Customer Account']/following-sibling::td//button[normalize-space()='Copy credentials']");
+    private static By buttonCopyAdminAcc = By.xpath("//button[normalize-space()='Copy']");
     private static By buttonSubmitLogin = By.xpath("//button[normalize-space()='Login']");
     private static By titleLoginPage = By.xpath("//h1[normalize-space() = 'Login to your account.']");
     private By messageRequiredEmail = By.xpath("//strong[contains(text(),'The email field is required when phone is not present.')]");
     private static By inputEmail = By.xpath("//input[@id='email']");
     private static By inputPassword = By.xpath("//input[@id='password']");
-    private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message1']");
+    private By messageAccDoesNotExist = By.xpath("//span[@data-notify='message']");
     private By messageRequiredPassword = By.xpath("//input[contains(@class, 'is-invalid') and @id = 'password']");
     private static By titleAnhTesterAdminPage = By.xpath("//img[@alt='Active eCommerce CMS']");
 
@@ -39,7 +39,7 @@ public class LoginPage extends CommonPage {
         WebUI.setText(inputEmail, email);
         WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
-        WebUI.waitForElementVisible(messageAccDoesNotExist);
+//        WebUI.waitForElementVisible(messageAccDoesNotExist);
         WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Email is incorrect but valid is NOT displayed.");
     }
 
@@ -50,7 +50,7 @@ public class LoginPage extends CommonPage {
         WebUI.verifyAssertTrueIsDisplayed(messageRequiredPassword, "Password is NULL but valid is NOT displayed.");
     }
 
-    public void loginFailWithFailPassword(String email, String password) {
+    public void loginFailWithIncorrectPassword(String email, String password) {
         openLoginPage();
         WebUI.setText(inputEmail, email);
         WebUI.clearText(inputPassword);
@@ -59,10 +59,14 @@ public class LoginPage extends CommonPage {
         WebUI.verifyAssertTrueIsDisplayed(messageAccDoesNotExist, "Password is failed but valid is NOT displayed.");
     }
 
-    public static void loginSuccessWithCustomerAccount() {
+    public static void loginSuccessWithCustomerAccount(String email, String password) {
         openLoginPage();
-        WebUI.clickElement(buttonCopyCustomerAcc);
+//        WebUI.clickElement(buttonCopyAdminAcc);
+        WebUI.setText(inputEmail, email);
+        WebUI.clearText(inputPassword);
+        WebUI.setText(inputPassword, password);
         WebUI.clickElement(buttonSubmitLogin);
+        WebUI.waitForElementVisible(DashboardPage.titleDashboard);
         WebUI.verifyAssertTrueIsDisplayed(DashboardPage.titleDashboard, "Dashboard page is NOT displayed.");
     }
 

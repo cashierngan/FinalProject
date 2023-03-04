@@ -10,12 +10,15 @@ import java.util.ArrayList;
 
 public class ProductInfoTest extends BaseTest {
     public ExcelHelpers excel;
+    public ExcelHelpers excel2;
 
     @Test(priority = 1)
-    public void roductInfo() {
+    public void productInfo() {
         excel = new ExcelHelpers();
         excel.setExcelFile("DataTest/GetProductInfo.xlsx", "ProductInfo");
-        ArrayList productInfo = getProductInfoPage().productInfo(PropertiesHelper.getValue("product_P01"));
+        excel2 = new ExcelHelpers();
+        excel2.setExcelFile("DataTest/Login.xlsx", "Login");
+        ArrayList productInfo = getProductInfoPage().productInfo(PropertiesHelper.getValue("product_P01"), excel2.getCellData("email", 4), excel2.getCellData("password", 4));
         int lastRow = excel.getLastRowNum();
         int newRow = lastRow + 1;
         excel.setCellData(String.valueOf(newRow), newRow, 0);

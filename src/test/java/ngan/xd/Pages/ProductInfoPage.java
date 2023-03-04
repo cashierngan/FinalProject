@@ -13,13 +13,14 @@ public class ProductInfoPage extends CommonPage {
     public static By productPrice = By.xpath("//strong[@class='h2 fw-600 text-primary']");
     private By productUnit = By.xpath("//span[@class='opacity-70']");
     private By productDescription = By.xpath("//div[@class = 'mw-100 overflow-auto text-left aiz-editor-data']/p");
-    private By selectProductChocoPie = By.xpath("(//img[@alt='ChocoPie'])[1]");
+    private By selectProductCosy = By.xpath("(//a[@class = 'd-block text-reset' ])[1]");
 
-    public ArrayList productInfo(String product) {
-        LoginPage.loginSuccessWithCustomerAccount();
+    public ArrayList productInfo(String product, String email, String password) {
+        LoginPage.loginSuccessWithCustomerAccount(email, password);
         WebUI.setTextEnter(DashboardPage.searchProduct, product);
-        WebUI.clickElement(By.xpath("(//img[@alt='" + product + "'])[1]"));
-        String name = DriverManager.getDriver().findElement(By.xpath("//h1[normalize-space()='" + product + "']")).getText();
+        WebUI.clickElement(selectProductCosy);
+
+        String name = DriverManager.getDriver().findElement(selectProductCosy).getText();
         String price = DriverManager.getDriver().findElement(productPrice).getText();
         String unit = DriverManager.getDriver().findElement(productUnit).getText();
         String unitProduct = unit.substring(1);

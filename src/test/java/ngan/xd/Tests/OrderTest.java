@@ -9,6 +9,8 @@ public class OrderTest extends BaseTest {
 
     @Test(priority = 1)
     public void successOrder() {
-        getOrderPage().order("delivery as soon as possible");
+        excel = new ExcelHelpers();
+        excel.setExcelFile("DataTest/Login.xlsx", "Login");
+        getOrderPage().order("delivery as soon as possible", excel.getCellData("email", 4), excel.getCellData("password", 4));
     }
 }
