@@ -11,12 +11,12 @@ import java.nio.file.WatchEvent;
 
 public class OrderPage {
     private By selectProductNabati = By.xpath("(//a[contains(text(),'Nabati')])[1]");
-    private By selectProductCosy = By.xpath("(//a[@class = 'd-block text-reset' ])[1]");
+    private By selectProduct1 = By.xpath("(//a[contains(text(),'Cosy')])[1]");
     private By buttonAddToCart = By.xpath("//button[@class='btn btn-soft-primary mr-2 add-to-cart fw-600']");
     private By popupAddToCartSucceeded = By.xpath("//h3[normalize-space()='Item added to your cart!']");
     private By clodeSuccessAddToCartPopup = By.xpath("//span[@class = 'la-2x']");
     private By buttonBackToShopping = By.xpath("//button[normalize-space()='Back to shopping']");
-    private By selectProductChocoPie = By.xpath("(//a[@class = 'd-block text-reset' ])[1]");
+    private By selectProduct2 = By.xpath("(//a[@class = 'd-block text-reset' ])[1]");
     private By buttonPlus = By.xpath("//button[contains(@data-type,'plus')]");
     private By buttonCart = By.xpath("//i[@class='la la-shopping-cart la-2x opacity-80']");
     private By viewProductOrderOnCart = By.xpath("//span[@class='fw-600 mb-1 text-truncate-2']");
@@ -38,7 +38,7 @@ public class OrderPage {
     private By titleNewAddress = By.xpath("//div[@id='new-address-modal']//h5[@id='exampleModalLabel']");
     private By inputYourAddress = By.xpath("//textarea[@placeholder='Your Address']");
     private By selectCountry = By.xpath("//div[contains(text(),'Select your country')]");
-    private By buttonSelectAddress = By.xpath("//span[@class='aiz-rounded-check flex-shrink-0 mt-1']");
+    private By buttonSelectAddress = By.xpath("(//span[@class='aiz-rounded-check flex-shrink-0 mt-1'])[1]");
     private By quantity = By.xpath("//input[@name='quantity']");
     private By paymentPage = By.xpath("//h3[normalize-space()='Any additional info?']");
     private By totalPrice = By.xpath("//tr[@class = 'cart-subtotal']//td[@class = 'text-right']//span");
@@ -46,14 +46,14 @@ public class OrderPage {
     public void order(String noteForOrder, String email, String password) {
         LoginPage.loginSuccessWithCustomerAccount(email, password);
         WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P01"));
-        WebUI.clickElement(selectProductCosy);
+        WebUI.clickElement(By.xpath("(//a[contains(text(),'" + PropertiesHelper.getValue("product_P01") + "')])[1]"));
         String nabatiPrice = DriverManager.getDriver().findElement(ProductInfoPage.productPrice).getText().trim();
         WebUI.scrollToElement(buttonAddToCart);
         WebUI.clickElement(buttonAddToCart);
         WebUI.verifyAssertTrueIsDisplayed(popupAddToCartSucceeded, "Add to cart is failed");
         WebUI.clickElement(buttonBackToShopping);
         WebUI.setTextEnter(DashboardPage.searchProduct, PropertiesHelper.getValue("product_P02"));
-        WebUI.clickElement(selectProductChocoPie);
+        WebUI.clickElement(By.xpath("(//a[contains(text(),'" + PropertiesHelper.getValue("product_P02") + "')])[1]"));
         String chocoPiePrice = DriverManager.getDriver().findElement(ProductInfoPage.productPrice).getText().trim();
         WebUI.clickElement(buttonPlus);
         String quantities = DriverManager.getDriver().findElement(quantity).getAttribute("value").trim();
@@ -65,6 +65,7 @@ public class OrderPage {
         WebUI.clickElement(buttonCart);
         WebUI.verifyAssertTrueIsDisplayed(viewProductOrderOnCart, "My product is NOT displayed");
         WebUI.clickElement(buttonCheckoutOnCartPopup);
+        WebUI.scrollToElement(buttonSelectAddress);
         WebUI.clickElement(buttonSelectAddress);
         WebUI.clickElement(buttonContinueToDeliveryInfo);
 //        WebUI.verifyAssertTrueIsDisplayed(verifyProductNabatiAtStepCheckout, "My product is NOT displayed");
